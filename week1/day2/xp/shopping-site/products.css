@@ -1,0 +1,31 @@
+nav{
+    position: top ;
+    size: 50px;
+    background-color: black;
+    font-size: medium;
+}
+
+.b{
+    display: inline;
+    position: right;
+    margin-left: 90%;
+    padding-left: 50px;
+
+}
+
+.footer{
+    position: bottom;
+    margin-top: 90%;
+}
+.our{
+
+    font-size: larger;
+}
+
+td{
+    position: relative
+}
+button{
+    
+    background-image:url(./imagescrown.png);
+}   
