@@ -1,5 +1,5 @@
 img{width: 400px;
-    margin-left: 150px;
+    margin-left: 500px;
 }
 h1{color: blue;}
 .link {
@@ -19,6 +19,11 @@ h1{color: blue;}
     
 }
 
+.high{
+    background-color: yellow;
+    display: inline;
+
+}
 .P1 {
 
     padding-bottom: 10px;

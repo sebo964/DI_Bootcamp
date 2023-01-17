@@ -1,0 +1,33 @@
+img {
+float: left;
+height: 50px;
+width: 50px;
+color: aliceblue;
+
+}
+
+
+nav{
+    background-color: white;
+    color: black;
+    height: 50px;
+    border: solid 2px;
+
+
+}
+
+.a{
+
+    display: inline;
+
+    float: left;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.b {
+    display: inline;
+    float: right;
+    text-decoration: none;
+    overflow: hidden;
+}
