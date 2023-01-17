@@ -30,3 +30,26 @@ h1{color: blue;}
 }
 
 h3{text-align: center;}
+
+table,td,th{ 
+
+    border-style: double;
+    border: 1px solid;
+    padding: 10px 10px 10px ;
+}
+
+img{
+    
+    margin-left: 500px;
+    padding-top: 40px;
+    width: 400px}
+
+    .red{ 
+        text-align: center;
+        color: red;
+        border-style: double;
+    }
+
+    h2{
+        text-align: center;
+    }

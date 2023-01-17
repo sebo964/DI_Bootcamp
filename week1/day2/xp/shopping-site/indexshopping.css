@@ -1,33 +1,48 @@
 img {
 float: left;
-height: 50px;
-width: 50px;
-color: aliceblue;
+height:50px;
+position:fixed
 
 }
 
 
 nav{
-    background-color: white;
-    color: black;
-    height: 50px;
-    border: solid 2px;
-
-
+    background-color: black;
+    color: white
+    height: 50px; 
+    border: solid 30px;
+    
 }
 
 .a{
 
     display: inline;
-
-    float: left;
-    text-decoration: none;
-    overflow: hidden;
+    
 }
 
 .b {
     display: inline;
     float: right;
-    text-decoration: none;
-    overflow: hidden;
+    text-decoration: none;   
+    opacity: 80%; 
+    color: aliceblue;
+    
+}
+
+ul{
+    font-size: larger;
+}
+
+.btn:hover{
+    font-size: larger;
+    
+    
+}
+.btn{
+    font-size: large;
+}
+
+.btn:active{
+    color: red;
+    
 }
