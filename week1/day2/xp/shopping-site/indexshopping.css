@@ -9,28 +9,25 @@ position:fixed
 nav{
     background-color: black;
     color: white
-    height: 50px; 
-    border: solid 30px;
-    
+    height: 30px; 
+    border: solid 20px;
 }
 
-.a{
 
-    display: inline;
-    
-}
-
-.b {
-    display: inline;
-    float: right;
-    text-decoration: none;   
-    opacity: 80%; 
-    color: aliceblue;
-    
-}
 
 ul{
     font-size: larger;
+    float: right;
+    list-style-type: none;
+    
+}
+.b {
+    float: right;
+    opacity: 80%; 
+    
+}
+ul :first-child{
+    float: left; 
 }
 
 .btn:hover{
@@ -45,4 +42,9 @@ ul{
 .btn:active{
     color: red;
     
+}
+
+a. {
+    float: left;
+    margin-right: 90%;
 }
