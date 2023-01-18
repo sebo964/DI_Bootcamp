@@ -1,0 +1,50 @@
+main{
+    display: grid;
+    grid-template-areas:
+    '. r2 .'  
+    '. r2 .' 
+    '. r2 .' 
+    '. r2 .';
+    grid-template-columns: auto 1fr auto ;
+    gap: 20px;
+
+}
+
+
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    grid-area: r2;
+    background-color: white
+    
+    border: solid
+    
+        
+    
+}
+    .c1{
+        border: solid;
+        border-color: black;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        margin: 20px;
+        margin-top: 19%;
+        background-color: yellow;
+    
+        
+        
+
+    }
+
+
+.y1{
+    height: 50px;
+    width: 50px;
+    background-color: yellow;
+    border-color: black;
+    border: solid
+    
+}

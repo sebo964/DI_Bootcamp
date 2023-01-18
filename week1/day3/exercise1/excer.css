@@ -1,0 +1,45 @@
+.table  {
+    display: grid  ;
+    grid-template-areas: 
+    'a1 a1 a1 a1'
+    'a2 a3 a3 a3'
+    'a4 a3 a3 a3'
+    'a4 a4 a5 a5'
+    'a6 a6 a7 a7'
+    'a8 a8 a8 a8';
+    background-color: brown;
+    grid-gap: 8px;
+    border:solid;color: black; 
+    
+}
+
+
+.el1{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    grid-area: a1;
+    border: solid
+    
+}
+
+.el2{
+    grid-area: a2;
+    display: flex;
+    justify-content: center;
+    border:solid
+}
+
+.el3{
+    grid-area: a3;
+    display: flex;
+    justify-content: center;
+    border: solid;
+}
+
+.el4{
+    grid-area: a8;  
+    display: flex;
+    justify-content: center;
+    border: solid;
+}
