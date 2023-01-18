@@ -1,5 +1,6 @@
 nav{
     position: top ;
+    position: fixed
     size: 50px;
     background-color: black;
     font-size: medium;
