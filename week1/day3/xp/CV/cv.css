@@ -1,0 +1,9 @@
+main{
+    display: grid;
+    grid-template-areas: 
+    'r1 r2 r3 '
+    
+    
+    ;
+
+}
