@@ -1,0 +1,64 @@
+.nav12{
+
+  background-color: #333;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  
+
+}
+
+.tab12{ 
+    margin-top: 100px !important;
+    height: auto;
+    background-image: url(./Assets/pexels-pixabay-416779.jpg); 
+    background-size: 100% 
+}
+
+.row12 {
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    width: 100%;
+}
+
+.name{
+    display: flex;
+    font-size: 5em;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid;
+    height: 300px;
+    background-color:rgba(255, 255, 255, 0.542) ;
+
+}
+
+.row13 {
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    width: 100%;
+}
+
+.mainsec{
+    display: flex
+    padding-top: 0px;
+    border: 2px solid red;
+    background-color: aqua;
+    height: 200%;
+    
+}
+
+.row14{
+
+    display: flex;
+    font-size: 12px;
+}
+
+.row14 {
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    width: 100%;
+    font-size: 24px;
+}
