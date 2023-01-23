@@ -15,8 +15,12 @@
 // you will console.log 
 // I eat chocolate at every dinner
 
+let favfood="mine";
+let meal="dinner";
+let sen= `I eat ${favfood} at every ${meal}`
 
-
+console.log(sen)
+ 
 
 
 // 🌟 Exercise 2 : Series
@@ -35,15 +39,46 @@
 // Console.log a sentence using both of the variables created above
 // For example : I watched 3 series : black mirror, money heist, and the big bang theory
 
+const myWatchedSeries = ["black mirror", "money heist", "the big bang theory"];
+
+let myWatchedSeriesLength=myWatchedSeries.length;
+
+console.log(myWatchedSeriesLength);
+
+let myWatchedSeriesSentence = `I like to watch ${myWatchedSeries[0]}, ${myWatchedSeries[1]} and ${myWatchedSeries[2]}.`;
+
+console.log(myWatchedSeriesSentence);
+
 
 // Part II
 
-// Change the series “the big bang theory” to “friends”. Hint : You will need to use the index of “the big bang theory” series.
+// Change the series    “the big bang theory” to “friends”. Hint : You will need to use the index of “the big bang theory” series.
 // Add, at the end of the array, the name of another series you watched.
 // Add, at the beginning of the array, the name of your favorite series.
 // Delete the series “black mirror”.
 // Console.log the third letter of the series “money heist”.
 // Finally, console.log the myWatchedSeries array, to see all the modifications you’ve made.
+
+myWatchedSeries.splice(2,1,"friends");
+
+console.log(myWatchedSeries);
+
+myWatchedSeries.splice(3,0,"Superstore")
+
+console.log(myWatchedSeries)
+
+myWatchedSeries.splice(0,0,'The Office')
+
+console.log(myWatchedSeries)
+
+myWatchedSeries.splice(1,1)
+
+console.log(myWatchedSeries)
+
+let money=myWatchedSeries[1]
+
+console.log(money.charAt(2))
+
 
 
 // 🌟 Exercise 3 : The Temperature Converter
@@ -56,6 +91,13 @@
 // Hint : Should you create another variable to hold the temperature in fahrenheit? (ie. point 2)
 // Hint: To convert a temperature from celsius to fahrenheit : Divide it by 5, then multiply it by 9, then add 32
 
+let tempc=30
+
+let tempf=((tempc/5)*9)+32
+
+const tempsen=`${tempc}°C is ${tempf}°F`
+
+console.log(tempsen)
 
 // 🌟 Exercise 4 : Guess The Answers #1
 
@@ -76,28 +118,38 @@
 
 // Using the code below:
 
-//     let c;
-//     let a = 34;
-//     let b = 21;
+//   let c;
+//   let a = 34;
+ //   let b = 21;
 
-//     console.log(a+b) //first expression
-//     // Prediction:
-//     // Actual:
+ //   console.log(a+b) //first expression
+//     // Prediction:55
+//     // Actual:55
 
-//     a = 2;
+ // a = 2;
 
-//     console.log(a+b) //second expression
-//     // Prediction:
-//     // Actual:
+ //console.log(a+b) //second expression
+//     // Prediction:23 a has been reassigned value of 2 
+//     // Actual:23 
 
 
 
 // What will be the outcome of a + b in the first expression ?
+
+// ANSWER  55 - number additions.  
+
 // What will be the outcome of a + b in the second expression ?
+
+// ANSWER 23 - a was reassigned value 2 
+
 // What is the value of c?
+
+//ANSWER -1 - c has not been given any value. 
 
 // Analyse the code below, what will be the outcome?
 // console.log(3 + 4 + '5');
+
+// ASNWER 75 the number '5' was declared was string, 3 and 4 will be added as number and 5 will be concatened with the result of 3 plus 4. 
 
 
 // Exercise 5 : Guess The Answers #2
@@ -121,68 +173,68 @@
 
 
 // typeof(15)
-// // Prediction:
-// // Actual:
+// // Prediction: number - it is is number 
+// // Actual: number 
 
 // typeof(5.5)
-// // Prediction:
-// // Actual:
+// // Prediction:float - it is decimal number
+// // Actual: number
 
 // typeof(NaN)
-// // Prediction:
-// // Actual:
+// // Prediction:text - appears to be a text 
+// // Actual:number 
 
 // typeof("hello")
-// // Prediction:
-// // Actual:
+// // Prediction:text - the text is in ""
+// // Actual: string 
 
 // typeof(true)
-// // Prediction:
-// // Actual:
+// // Prediction: boolean - one of the 2 boolean value, true false. 
+// // Actual: boolean 
 
 // typeof(1 != 2)
-// // Prediction:
-// // Actual:
+// // Prediction: true
+// // Actual:boolean - type of only describes the output not the actual output 
 
 // "hamburger" + "s"
-// // Prediction:
-// // Actual:
+// // Prediction: hamburgers - text concatenation 
+// // Actual: hamburgers 
 
 // "hamburgers" - "s"
-// // Prediction:
-// // Actual:
+// // Prediction:invalid - operation if for numbers and text was declared. 
+// // Actual:NaN 
 
 // "1" + "3"
-// // Prediction:
-// // Actual:
+// // Prediction:13 - 1 and 3 are declared strings so the are concatenanted 
+// // Actual:13
 
 // "1" - "3"
-// // Prediction:
-// // Actual:
+// // Prediction: -2  - the operation - is for numbers only, the value 1 and 3 are converted to numbers and the mathematical operation is done. 
+// // Actual:-2 
 
 // "johnny" + 5
-// // Prediction:
-// // Actual:
+// // Prediction:johnny5
+// // Actual:johnny5
 
 // "johnny" - 5
-// // Prediction:
-// // Actual:
+// // Prediction:NaN - operator does not operate on a strng and a number
+// // Actual:NaN
 
 // 99 * "hello"
-// // Prediction:
-// // Actual:
+// // Prediction:NaN - * Operator does not work with string values. 
+// // Actual:NAN 
 
 // 1 != 1
-// // Prediction:
-// // Actual:
+// // Prediction:false - boolean computation is false 
+// // Actual:false
 
 // 1 == "1"
-// // Prediction:
-// // Actual:
+// // Prediction:true - 1 is greater or equal to 1 
+// // Actual:true
 
 // 1 === "1"
-// // Prediction:
-// // Actual:
+// // Prediction: false - strictly speaking the values are not the same as one is a string and one a number, hence false. 
+// // Actual:false 
 
 
 // Exercise 6 : Guess The Answers #3
@@ -199,60 +251,60 @@
 
 
 // 5 + "34"
-// // Prediction:
-// // Actual:
+// // Prediction: 534
+// // Actual:534 - concatenation of numbers. 
 
 // 5 - "4"
-// // Prediction:
-// // Actual:
+// // Prediction:54
+// // Actual:1
 
 // 10 % 5
-// // Prediction:
-// // Actual:
+// // Prediction:0
+// // Actual:0
 
 // 5 % 10
-// // Prediction:
-// // Actual:
+// // Prediction:2
+// // Actual:5
 
 // "Java" + "Script"
-// // Prediction:
-// // Actual:
+// // Prediction:JavaScript
+// // Actual:JavaScript
 
 // " " + " "
-// // Prediction:
-// // Actual:
+// // Prediction: -- nothing blank 
+// // Actual: -- nothing blank
 
 // " " + 0
-// // Prediction:
-// // Actual:
+// // Prediction: 0
+// // Actual: nothing
 
 // true + true
-// // Prediction:
-// // Actual:
+// // Prediction: truetrue
+// // Actual: nothing
 
 // true + false
-// // Prediction:
-// // Actual:
+// // Prediction: 1 - true and false hold values of 1 and zero 
+// // Actual: 1
 
 // false + true
-// // Prediction:
-// // Actual:
+// // Prediction: 1 
+// // Actual: 1 same as above
 
 // false - true
-// // Prediction:
-// // Actual:
+// // Prediction: -1 the same as 0 minus 1 
+// // Actual: -1 
 
 // !true
-// // Prediction:
-// // Actual:
+// // Prediction: false operator return the oppposite of true 
+// // Actual: false 
 
 // 3 - 4
-// // Prediction:
-// // Actual:
+// // Prediction: -1 simople mathematical substraction. 
+// // Actual: -1 
 
 // "Bob" - "bill"
-// // Prediction:
-// // Actual:
+// // Prediction:Nan - string cannot be subtracted this is why it generates an error. 
+// // Actual: NaN 
 
 
 
