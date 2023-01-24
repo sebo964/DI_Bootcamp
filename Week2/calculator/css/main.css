@@ -1,0 +1,66 @@
+:root {
+    --main-bg-color: #303030;
+    --display-font-size: 70px;
+}
+
+body {
+    background-color: var(--main-bg-color);
+    padding: 20px 0 0 0;
+    margin: 0;
+}
+
+main {
+    margin: 0 auto;
+    width: 70%;
+    height: 500px;
+    background-color: #cdcdcd;
+    border-radius: 8px;
+    padding: 8px;
+    display: grid;
+    grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+}
+
+.display {
+    grid-column: 1 / span 4;
+    grid-row: 1;
+    background-color: var(--main-bg-color);
+    border-radius: 3px;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: var(--display-font-size);
+    padding: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.right-placeholder {
+    grid-row: 3 / span 3;
+    grid-column: 4;
+}
+
+button.btn {
+    cursor: pointer;
+    font-size: 20px;
+    outline: none;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    padding: 0;
+    background-color: #ebebeb;
+    transition: all ease-in-out 200ms;
+}
+
+button.btn:hover {
+    background-color: #e0e0e0;
+}
+
+button.btn:focus {
+    border-color: #616161;
+}
+
+button.btn:active {
+    transform: scale(0.98);
+}
