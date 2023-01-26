@@ -21,25 +21,31 @@
 
 //let userinput = [prompt('enter words seperateg by commas')]
 
+
+// Prompt user to enters words seperateg by commas
 let word=prompt('Enter words seperateg by commas')
 
-starbox(word)
+starbox(word) // executes the function add starbox.
 
+
+
+//---------------
+
+// function to add starbox around words seperateg by commas
 
 function starbox(words) {
 
-
 userinput=words;
 
-let userarra=userinput.split(","); // covnerts to array form
+let userarra=userinput.split(","); // converts the text to array elements
         for (let i=0; i<userarra.length; i++) {
 
-        userarra[i] = userarra[i].trim();
+        userarra[i] = userarra[i].trim();  // trims for extra spaces
 
         };  
 
 //--------------------------
-//find the word with the longest length
+//find the word with the largest number of characters and report how many characters the word has. 
     let arralen=[];
     let maxlenght;
 
@@ -54,33 +60,33 @@ let userarra=userinput.split(","); // covnerts to array form
             lastitemposition = arralen.length-1;
 
             maxlenght = arralen[lastitemposition];
-        console.log(maxlenght)
-        console.log(arralen)
+        console.log(maxlenght);
+        console.log(arralen);
 //---------------------------------------------
 
 //add stars above and below the the group items. 
 
-//print the stars
+//print the stars based on the longest word length
    
 let star='*'.repeat(maxlenght+10);
 
-console.log(star)
+console.log(star) // print top row of stars
 
 
     for (let i=0; i<userarra.length; i++) {     // displays on multple lines
 
-    let output = []
+    let output = [];
     
     output.push("* "+userarra[i].padEnd(maxlenght+4," ").padStart(maxlenght+6," ")+" *");   
     
 
 
-    console.log(`${output}`)
+    console.log(`${output}`);
     };
 
 
 
 ///print the stars
 
-console.log(star)
-}
+console.log(star); // print bottom row of stars
+};
