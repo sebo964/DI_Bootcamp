@@ -35,7 +35,7 @@ starbox(word) // executes the function add starbox.
 
 function starbox(words) {
 
-userinput=words;
+let userinput=words;
 
 let userarra=userinput.split(","); // converts the text to array elements
         for (let i=0; i<userarra.length; i++) {
@@ -56,7 +56,7 @@ let userarra=userinput.split(","); // converts the text to array elements
                                             };
 
             arralen.sort();
-
+                                            
             lastitemposition = arralen.length-1;
 
             maxlenght = arralen[lastitemposition];
