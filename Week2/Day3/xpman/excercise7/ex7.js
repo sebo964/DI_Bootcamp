@@ -17,4 +17,3 @@ for (let x in names.sort()) {
 
     
     };
-
