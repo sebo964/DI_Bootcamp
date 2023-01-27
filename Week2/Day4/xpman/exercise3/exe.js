@@ -22,3 +22,49 @@
 // Example:
 // isDivisible(3) : Console.log all the numbers divisible by 3, and their sum
 // isDivisible(45) : Console.log all the numbers divisible by 45, and their sum
+
+function isDivisible() {
+let div_23 =[];
+    for (let i = 0; i <500; i++) {
+        if (i % 23 === 0) {
+            div_23.push(i);
+
+            }
+    }
+    let sum = 0
+    for (let i = 0; i < div_23.length; i++){
+
+        sum += div_23[i];
+    }
+
+console.log(`Numbers divisible by 23 are ${div_23} and total is ${sum}}`)
+};
+
+isDivisible();
+
+///-----------------------------------------
+
+function isDivisiblevalue(divisor, total) {
+    let div =[];
+        for (let i = 0; i <total; i++) {
+            if (i % divisor === 0) {
+                div.push(i);
+    
+                }
+        }
+        let sum = 0
+        for (let i = 0; i < div.length; i++){
+    
+            sum += div[i];
+        }
+    
+    console.log(`Numbers divisible by ${divisor} are ${div} and total is ${sum}}`)
+    };
+    
+    isDivisiblevalue(
+        
+        (prompt(`Enter divisor`)),
+
+        (prompt(`Enter number to be checked`)),
+    )
+    

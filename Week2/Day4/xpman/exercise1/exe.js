@@ -16,3 +16,19 @@
 // Call the function twice with the following arguments:
 // infoAboutPerson("David", 45, "blue")
 // infoAboutPerson("Josh", 12, "yellow")
+
+
+function infoAboutMe(){
+
+    console.log("My name is Sebastian, I am trying to be become a developer.");
+}
+
+infoAboutMe()
+
+function infoAboutPerson(personName, personAge, personFavoriteColor){
+
+    console.log(`You name is ${personName}, you are ${personAge} years old, your favorite ${personFavoriteColor}`);
+}
+
+infoAboutPerson("David", 45, "blue")
+infoAboutPerson("Josh", 12, "yellow")

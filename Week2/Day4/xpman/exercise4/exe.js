@@ -32,3 +32,56 @@
 // Bonus: If the item is in stock, decrease the item’s stock by 1
 
 
+const stock = { 
+    "banana": 6, 
+    "apple": 0,
+    "pear": 12,
+    "orange": 32,
+    "blueberry":1
+}  
+
+const prices = {    
+    "banana": 4, 
+    "apple": 2, 
+    "pear": 1,
+    "orange": 1.5,
+    "blueberry":10
+} 
+
+console.log(stock)
+
+
+
+//let shoppingList=["banana","orange","apple"]
+//list the properties of stock items
+
+const stockarra = Object.keys(stock)
+
+ console.log(stockarra)
+
+ let shoppingList=["banana","orange","apple"]
+
+
+ function myBill() {
+// if shoppingList item is in stock and value is greather than zero then item is prices is added in bill total variable
+
+            let billTotal = 0
+
+            if (stock.banana>0) {
+
+                    billTotal = billTotal + prices.banana}
+
+            if (stock.orange>0) {
+
+                    billTotal = billTotal + prices.orange}
+
+            if (stock.apple>0) {
+
+                    billTotal = billTotal + prices.apple}
+        
+
+    console.log(billTotal)
+
+ }
+
+ myBill()

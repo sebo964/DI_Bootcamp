@@ -35,3 +35,33 @@
 // changeEnough(0.75, [0,0,20,5]) => returns true
 
 
+let itemPrices = 4.25
+let quarters = 25
+let dimes = 20
+let nickels = 5
+let pennies = 0
+
+arrachange=[]
+
+let amountOfChanges= quarters*0.25+dimes*0.10+nickels*0.05+pennies*0.01
+console.log(amountOfChanges)
+console.log(itemPrices)
+
+changeEnough(itemPrices, amountOfChanges) 
+
+
+function changeEnough(itemPrice, amountOfChange) {
+
+    
+    if (amountOfChange<itemPrice){
+        
+        console.log("false")
+    }
+    else{
+        
+        console.log("true")                   
+    
+    }
+
+}
+

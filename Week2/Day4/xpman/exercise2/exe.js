@@ -16,3 +16,22 @@
 // Console.log the tip amount and the final bill (bill + tip).
 
 // Call the calculateTip() function.
+
+function calculateTip() {
+    let bill = prompt("What is your bill?");
+    if (bill < 50) {
+        console.log(`Your bill is ${bill}, your tip is ${0.2*bill} and your total amount is ${bill*1.2}`)
+    } 
+    else if (bill>50 && bill<200) {
+
+        console.log(`Your bill is ${bill}, your tip is ${0.15*bill} and your total amount is ${bill*1.15}`)
+
+    }  
+    else    {
+
+        console.log(`Your bill is ${bill}, your tip is ${0.1*bill} and your total amount is ${bill*1.1}`)    
+    }
+}
+
+
+calculateTip();
