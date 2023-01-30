@@ -20,9 +20,9 @@ const planetsandmoons = [
 
  //    'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'pluto']; // array of planet names and the number of moons in them
 
-console.log(planetsandmoons.length);
+// console.log(planetsandmoons.length);
 
-
+// loop to add a div for a each plannet and change the color according to color attribute of the planets in the array
 for (let i=0; i<planetsandmoons.length;i++)
 {
     let planets = document.createElement('div');
