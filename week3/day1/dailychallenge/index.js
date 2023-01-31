@@ -23,20 +23,33 @@ const planetsandmoons = [
 // console.log(planetsandmoons.length);
 
 // loop to add a div for a each plannet and change the color according to color attribute of the planets in the array
+
+
+
 for (let i=0; i<planetsandmoons.length;i++)
 {
     let planets = document.createElement('div');
     planets.classList.add('planet');
     document.querySelector('section').appendChild(planets);
-    planets.style.backgroundColor = planetsandmoons[i].color;;
-    planets.textContent = planetsandmoons[i].planet;
-    planets.style.color=planetsandmoons[i];
-
     
-    // let moons = document.createElement('li');
+    // let moons = document.createElement('span');
     // moons.classList.add('moon');
     // document.querySelector('section').appendChild(moons);
-    // moons.textContent = planetsandmoons[i].moon;
+
+    planets.style.backgroundColor = planetsandmoons[i].color;
+    planets.textContent += planetsandmoons[i].planet;
+    //moons.textContent += planetsandmoons[i].moon;
+    planets.style.color=planetsandmoons[i];
+   // document.getElementsByTagName('div').innerHTML = moons.textContent += planetsandmoons[i].moon;
 
 
 }
+
+// for (let i=0; i<planetsandmoons.length; i++){
+
+
+// document.querySelector('div').appendChild(moons);
+// moons.textContent = planetsandmoons[i].moon;
+
+// }
+
