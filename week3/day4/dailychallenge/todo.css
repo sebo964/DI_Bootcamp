@@ -1,0 +1,40 @@
+form { 
+
+    display: flex;
+    align-items: center;
+    border-color: red !important;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5
+    margin-bottom: 10px;
+    margin-top: 10px;
+    align-content: center;
+
+}
+
+.input {
+
+    display: flex;
+    align-items: center;
+
+}
+
+.input-label {
+
+    display: block
+
+}
+
+.p {
+
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+div{
+
+    border-style: solid;
+    border-color: green !important;
+    padding-left: 20px;
+    margin-left: 20px;
+}
