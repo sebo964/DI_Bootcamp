@@ -89,9 +89,6 @@ function libit() {
      // tahe the content of the text fields and add into the sotry text area
      document.getElementById("story").innerHTML = `this is a ${record[0]} once upon a time in the ${record[1]} this was a great ${record[2]} and the ${record[3]} also ${record[4]}`
     
-    
-
-     
 
 }
 
