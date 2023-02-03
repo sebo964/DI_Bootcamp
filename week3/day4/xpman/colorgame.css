@@ -1,0 +1,121 @@
+.colorselector {
+    border: 1px solid black;
+    margin: 10px;
+    float: left;
+
+    
+}
+nav {
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+button{
+    width: 100px;
+    height: 50px;
+    border: 1px solid black;
+    margin: 10px;
+    float: left;
+    display: flex;
+}
+
+button:hover{
+    background-color: blue;
+    border-radius: 30%;
+}
+
+button:active{
+    background-color: red;
+}   
+
+.color1 {
+    background-color: red;
+}
+.color2 {
+    background-color: blue;
+}
+.color3 {
+    background-color: green;
+}
+.color4 {
+    background-color: yellow;
+}
+.color5 {
+    background-color: orange;
+}
+.color6 {
+    background-color: purple;
+}
+.color7 {
+    background-color: pink;
+}
+.color8 {
+    background-color: brown;
+}
+.color9 {
+    background-color: black;
+}
+.color10 {
+    background-color: white;
+}
+.color11 {
+    background-color: grey;
+}
+.color12 {
+    background-color: cyan;
+}
+color13 {
+    background-color: magenta;
+}
+.color14 {
+    background-color: gold;
+}
+.color15 {
+    background-color: silver;
+}
+.color16 {
+    background-color: olive;
+}
+.color17 {
+    background-color: teal;
+}
+.color18 {
+    background-color: navy;
+}
+.color19 {
+    background-color: maroon;
+}
+.color20 {
+    background-color: lime;
+}
+.color21 {
+    background-color: aqua;
+}
+.color22 {
+    background-color: fuchsia;
+}
+.color23 {
+    background-color: indigo;
+}
+.color24 {
+    background-color: violet;
+}
+
+.grid {
+    display: grid;
+	grid-template-columns: repeat(60, 1fr);
+	height: 100vh;
+	padding: 5px 5px 5px 0;
+}
+
+
+
+.grid > * {
+	border: 1px lightgray solid;
+	background-color: white;
+}
