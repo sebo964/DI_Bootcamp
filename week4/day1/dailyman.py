@@ -117,7 +117,7 @@ else:
 # If they are not tall enough print a message that says they need to grow some more to ride.
 
 height = input("Enter your height in inches: ")
-height = int(height)
+height = float(height)
 height_cm = height * 2.54
 if height_cm > 145:
     print("You are tall enough to ride")
