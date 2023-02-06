@@ -33,7 +33,7 @@ elif len(word10) > 10:
     # Bonus
     import random
 
-    word10 = list(word10)
+    word10 = [*(word10)]
     random.shuffle(word10)
     word10 = "".join(word10)
     print(word10)
