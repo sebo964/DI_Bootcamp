@@ -4,6 +4,11 @@
 
 # Write code that concatenates two lists together without using the + sign.
 
+list1 = [1, 2, 3, 4, 5]
+list2 = [6, 7, 8, 9, 10]
+
+listcombined = list1 + list2
+
 
 # Exercise 2: Range Of Numbers
 
@@ -11,6 +16,9 @@
 
 # Create a loop that goes from 1500 to 2500 and prints all multiples of 5 and 7.
 
+for i in range(1500, 2501):
+    if i % 5 == 0 and i % 7 == 0:
+        print(i)
 
 # Exercise 3: Check The Index
 
@@ -18,10 +26,15 @@
 
 # Using this variable
 
-# names = ['Samus', 'Cortana', 'V', 'Link', 'Mario', 'Cortana', 'Samus']
+names = ["Samus", "Cortana", "V", "Link", "Mario", "Cortana", "Samus"]
+
+userinput = "V"
 
 # Ask a user for their name, if their name is in the names list print out the index of the first occurence of the name.
 # Example: if input is 'Cortana' we should be printing the index 1
+
+if userinput in names:
+    print(names.index(userinput))
 
 
 # Exercise 4: Greatest Number
@@ -36,6 +49,12 @@
 
 #     The greatest number is: 87
 
+usernum = "25,78,87,203"
+
+userinput = usernum.split(",")
+userinput = list(map(int, userinput))
+sorted(userinput)
+print(userinput[-1])
 
 # Exercise 5: The Alphabet
 
@@ -44,6 +63,16 @@
 # Create a string of all the letters in the alphabet
 # Loop over each letter and print a message that contains the letter and whether its a vowel or a consonant.
 
+letters = "abcdefghijklmnopqrstuvwxyz"
+letters = [*(letters)]
+
+print(letters)
+
+for let in letters:
+    if let in "aeiou":
+        print(let, "is a vowel")
+    else:
+        print(let, "is a consonant")
 
 # Exercise 6: Words And Letters
 

@@ -1,16 +1,25 @@
-thisistuple1 = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-thisislist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+sandwich_orders = [
+    "Tuna sandwich",
+    "Avocado sandwich",
+    "Egg sandwich",
+    "Sabih sandwich",
+    "Pastrami sandwich",
+]
 
-var1 = "xx"
-var2 = "yy"
-var3 = "zz"
+sandwich_orders.append("Pastrami sandwich")
+sandwich_orders.append("Pastrami sandwich")
 
-thisistuple2 = (var1, var2, var3, thisistuple1, thisislist)
+while "Pastrami sandwich" in sandwich_orders:
+    sandwich_orders.remove("Pastrami sandwich")
 
-print(thisistuple2)
-var1 = "ww"
+print("Deli has run out of pastrami.")
 
+finished_sandwiches = []
 
-thisistuple2 = (var1, var2, var3, thisistuple1, thisislist)
+for sand in sandwich_orders:
+    finished_sandwiches.append(sand)
 
-print(thisistuple2)
+for sandfin in finished_sandwiches:
+    print(f"I nmade your {sandfin}.")
+
+print(sandwich_orders)

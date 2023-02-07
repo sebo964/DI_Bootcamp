@@ -13,7 +13,22 @@
 
 # 18,22,24
 
+usernumbers = input("Enter a comma-separated string of numbers: ")
+usernumbers = usernumbers.split(",")
+usernumbers = list(map(int, usernumbers))
 
+print(len(usernumbers))
+print(usernumbers)
+print(type(usernumbers[0]))
+
+listanswers = []
+
+for num in usernumbers:
+    q = ((2 * 50 * num) / 30) ** 0.5
+    print(int(q))
+    listanswers.append(q)
+
+print(listanswers)
 # Exercise 2 : List Of Integers
 
 # Instructions
@@ -80,3 +95,15 @@
 #     choosing:1
 #     or:2
 #     to:1
+
+sen = (
+    "New to Python or choosing between Python 2 and Python 3? Read Python 2 or Python 3"
+)
+
+sen = list(sen.split(" "))
+print(sen)
+
+sen2 = set(sen)
+
+for wd in sen2:
+    print(wd, sen.count(wd))
