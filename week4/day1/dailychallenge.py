@@ -24,16 +24,16 @@ if len(word10) < 10:
     print("String not long enough")
 elif len(word10) > 10:
     print("String too long")
-    print(word10[0])
-    print(word10[-1])
+print(word10[0])
+print(word10[-1])
 
-    for i in range(len(word10)):
-        print(word10[: i + 1])
+for i in range(len(word10)):
+    print(word10[: i + 1])
 
     # Bonus
-    import random
+import random
 
-    word10 = [*(word10)]
-    random.shuffle(word10)
-    word10 = "".join(word10)
-    print(word10)
+word10 = [*(word10)]
+random.shuffle(word10)
+word10 = "".join(word10)
+print(word10)
