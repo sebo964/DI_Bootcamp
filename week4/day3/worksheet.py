@@ -1,85 +1,99 @@
-# 🌟  Exercise 4 : Disney Characters
+# Challenge 2
 
-# Instructions
+# Create a program that prints a list of the items you can afford in the store with the money you have in your wallet.
+# Sort the list in alphabetical order.
+# Return “Nothing” if you can’t afford anything from the store.
+# Examples
 
-# Use this list :
+# The key is the product, the value is the price
 
-# users = ["Mickey","Minnie","Donald","Ariel","Pluto"]
-# Analyse these results :
+# items_purchase = {
+#   "Water": "$1",
+#   "Bread": "$3",
+#   "TV": "$1,000",
+#   "Fertilizer": "$20"
+# }
 
-# #1/
+# wallet = "$300"
 
-# >>> print(disney_users_A)
-# {"Mickey": 0, "Minnie": 1, "Donald": 2, "Ariel": 3, "Pluto": 4}
+# ➞ ["Bread", "Fertilizer", "Water"]
 
-# #2/
+# items_purchase = {
+#   "Apple": "$4",
+#   "Honey": "$3",
+#   "Fan": "$14",
+#   "Bananas": "$4",
+#   "Pan": "$100",
+#   "Spoon": "$2"
+# }
 
-# >>> print(disney_users_B)
-# {0: "Mickey",1: "Minnie", 2: "Donald", 3: "Ariel", 4: "Pluto"}
+# wallet = "$100"
 
-# #3/
+# ➞ ["Apple", "Bananas", "Fan", "Honey", "Pan", "Spoon"]
 
-# >>> print(disney_users_C)
-# {"Ariel": 0, "Donald": 1, "Mickey": 2, "Minnie": 3, "Pluto": 4}
+# items_purchase = {
+#   "Phone": "$999",
+#   "Speakers": "$300",
+#   "Laptop": "$5,000",
+#   "PC": "$1200"
+# }
 
+# wallet = "$1"
 
-# Use a for loop to recreate the 1st result. Tip : don’t hardcode the numbers.
-# Use a for loop to recreate the 2nd result. Tip : don’t hardcode the numbers.
-# Use a method to recreate the 3rd result. Hint: The 3rd result is sorted alphabetically.
-# Only recreate the 1st result for:
-# The characters, which names contain the letter “i”.
-# The characters, which names start with the letter “m” or “p”.
-
-users = ["Mickey", "Minnie", "Donald", "Ariel", "Pluto"]
-
-
-# Use a for loop to recreate the 1st result. Tip : don’t hardcode the numbers.
-# >>> print(disney_users_A)
-# {"Mickey": 0, "Minnie": 1, "Donald": 2, "Ariel": 3, "Pluto": 4}
-
-disney_users_A = dict(enumerate(users))
-disney_users_A = {v: k for k, v in disney_users_A.items()}
-
-print(disney_users_A)
-
-# Use a for loop to recreate the 2nd result. Tip : don’t hardcode the numbers.
-
-# >>> print(disney_users_B)
-# {0: "Mickey",1: "Minnie", 2: "Donald", 3: "Ariel", 4: "Pluto"}
-
-# disney_users_B = dict(enumerate(users))
-
-disney_users_B = {}
-for i, v in enumerate(users):
-    valuetopush = {i: v}
-    disney_users_B.update(valuetopush)
-
-print(disney_users_B)
-
-# Use a method to recreate the 3rd result. Hint: The 3rd result is sorted alphabetically.
-# >>> print(disney_users_C)
-# {"Ariel": 0, "Donald": 1, "Mickey": 2, "Minnie": 3, "Pluto": 4}
+# ➞ "Nothing"
 
 
-users_sorted = sorted(users)
-disney_users_C = dict(enumerate(users_sorted))
-disney_users_C = {v: k for k, v in disney_users_C.items()}
+# ---------------------Answer------------------------
+
+# code is valid only if the curreny in the wallet and the currency of the items is the same.
+
+# -----------INPUT -----------------------
+items_purchase = {"Water": "$1", "Bread": "$3", "TV": "$1,000", "Fertilizer": "$20"}
+
+wallet = "$300"
+
+# ----------------INPUT--------------------
 
 
-print(disney_users_C)
+def value(currency):
+    import re
 
-# Only recreate the 1st result for:
-# The characters, which names contain the letter “i”.
-# The characters, which names start with the letter “m” or “p”.
+    value = re.findall(
+        "[0-9]+", currency
+    )  # removes the $ from the wallet value and returns an int
+    value = "".join(value)  # joins the list into a string
+    intvalue = int(value)  # converts the string to an int
+    return intvalue
 
-for letter_i_users in users:
-    if "i" in letter_i_users:
-        print(letter_i_users)
 
-print("-------------------------------------------------------------")
+# print(value(wallet))
 
-for letter_mp_users in users:
-    if letter_mp_users.lower().startswith("m") or letter_mp_users.lower().startswith(
-        "p"
-    ):
-        print(letter_mp_users)
+value_of_item = items_purchase.values()
+
+int_value_of_item = []
+
+# print(value_of_item)
+
+for item in value_of_item:
+    int_value_of_item.append(value(item))
+
+# print(int_value_of_item)
+
+what_can_i_afford = []
+
+for itemcheck in int_value_of_item:
+    if itemcheck <= value(wallet):
+        what_can_i_afford.append(itemcheck)
+
+# print(what_can_i_afford)
+
+name_of_whats_affordable = []
+
+for key, item in items_purchase.items():
+    name_of_whats_affordable.append(key)
+
+# print(name_of_whats_affordable)
+
+name_of_whats_affordable = sorted(name_of_whats_affordable)
+
+print(name_of_whats_affordable)
