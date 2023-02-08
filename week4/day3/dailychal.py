@@ -14,7 +14,6 @@
 
 # "grapes" ➞ { "g": [0], "r": [1], "a": [2], "p": [3]}
 
-from sys import exit
 
 userword = input("Enter a word: ")
 
