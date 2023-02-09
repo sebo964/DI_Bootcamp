@@ -35,3 +35,71 @@
 # ● String for the output of the secret message
 
 # Hint (if needed) : Look at the remote learning “Matrix” videos for help.
+
+matrix = [
+    ["7", "i", "3"],
+    ["T", "s", "i"],
+    ["h", "%", "x"],
+    ["i", " ", "#"],
+    ["s", "M", " "],
+    ["$", "a", " "],
+    ["#", "t", "%"],
+    ["^", "r", "!"],
+]
+
+first_column_words = list(map(lambda x: x[0], matrix))
+Only_letters_col1 = list(filter(lambda x: x.isalpha(), first_column_words))
+second_column_words = list(map(lambda x: x[1], matrix))
+Only_letters_col2 = list(filter(lambda x: x.isalpha(), second_column_words))
+third_column_words = list(map(lambda x: x[2], matrix))
+Only_letters_col3 = list(filter(lambda x: x.isalpha(), third_column_words))
+
+Decoded_text = (
+    "".join(Only_letters_col1)
+    + " "
+    + " ".join(Only_letters_col2)
+    + " "
+    + " ".join(Only_letters_col3)
+)
+
+print(Decoded_text)
+
+first_column_words2 = []
+
+for i in matrix:
+    first_column_words2.append(i[0])
+
+Only_letters_col1_2 = []
+
+for i in first_column_words2:
+    if i.isalpha():
+        Only_letters_col1_2.append(i)
+
+
+second_column_words2 = []
+for i in matrix:
+    second_column_words2.append(i[1])
+
+Only_letters_col2_2 = []
+for i in second_column_words2:
+    if i.isalpha():
+        Only_letters_col2_2.append(i)
+
+third_column_words2 = []
+
+for i in matrix:
+    third_column_words2.append(i[2])
+
+Only_letters_col1_3 = []
+
+for i in third_column_words2:
+    if i.isalpha():
+        Only_letters_col1_3.append(i)
+
+Decoded_text2 = (
+    "".join(Only_letters_col1_2)
+    + "".join(Only_letters_col2_2)
+    + "".join(Only_letters_col1_3)
+)
+
+print(Decoded_text2)
