@@ -185,6 +185,8 @@ def get_random_temp(season):
         return random.randint(16, 23)
     if season == "fall":
         return random.randint(16, 23)
+    else:
+        return 0
 
 
 def main():
