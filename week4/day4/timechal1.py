@@ -10,3 +10,18 @@
 # String: This is a great example
 # Character: y
 # 0
+
+
+string_input = "string"
+char_input = "i"
+
+
+def count_occurence(string_input, char_input):
+    count = 0
+    for char in string_input:
+        if char == char_input:
+            count += 1
+    return print(count)
+
+
+count_occurence(string_input, char_input)
