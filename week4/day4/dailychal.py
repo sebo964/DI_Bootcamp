@@ -64,6 +64,8 @@ Decoded_text = (
 
 print(Decoded_text)
 
+# -------------------------Method 2 --------------------------------
+
 first_column_words2 = []
 
 for i in matrix:
