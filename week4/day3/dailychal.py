@@ -150,4 +150,7 @@ for key, item in items_purchase.items():
 
 name_of_whats_affordable = sorted(name_of_whats_affordable)
 
+if name_of_whats_affordable == []:
+    print("Nothing")
+
 print(name_of_whats_affordable)
