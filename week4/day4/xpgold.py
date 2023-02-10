@@ -21,6 +21,38 @@
 # Display a message informing the user whether they can retire or not.
 # As always, test your code to ensure it works.
 
+input_gender = input("Enter Gender (m/f): ")
+input_DOB = input("Enter DOB (dd/mm/yyyy): ")
+
+
+def get_age(year, month, day):
+    import datetime
+
+    now = datetime.datetime.now()
+    age = now.year - year
+    if now.month < month:
+        age -= 1
+    elif now.month == month and now.day < day:
+        age -= 1
+    return age
+
+
+def can_retire(gender, dob):
+    yr_mon_day = dob.split("/")
+    age = get_age(int(yr_mon_day[0]), int(yr_mon_day[1]), int(yr_mon_day[2]))
+    if gender == "m" and age >= 67:
+        return True
+    elif gender == "f" and age >= 62:
+        return True
+    else:
+        return False
+
+
+if can_retire(input_gender, input_DOB) == True:
+    print("You can retire")
+else:
+    print("You can't retire")
+
 
 # 🌟 Exercise 2 : Sum
 

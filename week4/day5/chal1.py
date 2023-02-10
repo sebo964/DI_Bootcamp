@@ -18,6 +18,16 @@ print(list)
 
 # Write a script that counts the number of spaces in a string.
 
+word_string = "This is a string with spaces"
+
+word_string_expand = (*word_string,)
+
+print(word_string_expand)
+
+list_of_space = [i for i in word_string_expand if i == " "]
+
+
+print(len(list_of_space))
 
 # Exercise 3
 
@@ -25,6 +35,21 @@ print(list)
 
 # Write a script that calculates the number of upper case letters and lower case letters in a string.
 
+word_string = "This is A String with spaces"
+
+
+def count_upper_lower(word_string):
+    upper = 0
+    lower = 0
+    for char in word_string:
+        if char.isupper():
+            upper += 1
+        elif char.islower():
+            lower += 1
+    return print(f"Upper: {upper}, Lower: {lower}")
+
+
+count_upper_lower(word_string)
 
 # Exercise 4
 
@@ -34,6 +59,17 @@ print(list)
 
 #     >>>my_sum([1,5,4,2])
 #     >>>12
+
+list_of_numbers = [1, 2, 3, 4, 5, 6, 7, 7, 8]
+
+print(type(list_of_numbers))
+
+num_total = 0
+
+for num in list_of_numbers:
+    num_total += num
+
+print(num_total)
 
 
 # Exercise 5
@@ -46,6 +82,15 @@ print(list)
 #     >>>50
 
 
+list_num_1 = [0, 1, 3000023, 50, 205, 1000]
+
+max_num = 0
+
+for num in list_num_1:
+    if num > max_num:
+        max_num = num
+print(max_num)
+
 # Exercise 6
 
 # Instructions
@@ -54,6 +99,14 @@ print(list)
 
 #     >>>factorial(4)
 #     >>>24
+
+import math
+
+fact_num = 4
+
+fact_total = math.factorial(fact_num)
+
+print(fact_total)
 
 
 # Exercise 7
@@ -64,6 +117,11 @@ print(list)
 
 #     >>>list_count(['a','a','t','o'],'a')
 #     >>>2
+
+list_count = (["a", "a", "t", "o"], "a")
+
+
+print(len(list_count))
 
 
 # Exercise 8
