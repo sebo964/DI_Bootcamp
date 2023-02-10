@@ -65,6 +65,17 @@ else:
 # Hint: treating our number as a int or a str at different points in our code may be helpful
 
 
+def sum(x):
+    return (
+        int(x)
+        + int(str(x) + str(x))
+        + int(str(x) + str(x) + str(x))
+        + int(str(x) + str(x) + str(x) + str(x))
+    )
+
+
+print(sum(4))
+
 # 🌟 Exercise 3 : Double Dice
 
 # Instructions
@@ -90,3 +101,36 @@ else:
 # Then my output would show something like this:
 # Total throws: 8
 # Average throws to reach doubles: 2.67.
+
+
+import random
+
+
+def throw_dice():
+    return random.randint(1, 6)
+
+
+def throw_until_doubles():
+    count = 0
+    dice1 = throw_dice()
+    dice2 = throw_dice()
+    while dice1 != dice2:
+        count += 1
+        dice1 = throw_dice()
+        dice2 = throw_dice()
+
+    return count
+
+
+print(throw_until_doubles())
+
+
+def throw_100_doubles():
+    count = 0
+    for i in range(100):
+        count += throw_until_doubles()
+    average_to_reach_double = count / 100
+    return count, average_to_reach_double
+
+
+print(throw_100_doubles())
