@@ -4,6 +4,13 @@
 
 # Write a script that inserts an item at a defined index in a list.
 
+list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+print(list)
+
+list.insert(2, 18)
+
+print(list)
 
 # Exercise 2
 
