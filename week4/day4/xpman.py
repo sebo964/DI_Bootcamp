@@ -116,29 +116,28 @@ make_shirt(txt="I hate java")
 # Write a function called make_great() that modifies the list of magicians by adding the phrase "the Great" to each magician’s name.
 # Call the function make_great().
 # Call the function show_magicians() to see that the list has actually been modified.
-
 magician_names = ["Harry Houdini", "David Blaine", "Criss Angel"]
 
 
-def show_magicians(**args):
-    for args in magician_names:
-        print(args)
+def show_magicians(args):
+    for arg in args:
+        print(arg)
 
 
-show_magicians()
+show_magicians(magician_names)
 
 # Write a function called make_great() that modifies the list of magicians by adding the phrase "the Great" to each magician’s name.
 
 
-def make_great(**args):
-    for args in magician_names:
-        index_of_aargs = magician_names.index(args)
-        magician_names.pop(index_of_aargs)
-        magician_names.insert(index_of_aargs, f"{args} the Great")
+def make_great(args):
+    for arg in args:
+        index_of_aargs = args.index(arg)
+        args.pop(index_of_aargs)
+        args.insert(index_of_aargs, f"{arg} the Great")
 
 
-make_great()
-show_magicians()
+make_great(magician_names)
+show_magicians(magician_names)
 
 
 # 🌟 Exercise 7 : Temperature Advice
@@ -179,11 +178,11 @@ def get_random_temp(season):
 
     if season == "winter":
         return random.randint(-10, 16)
-    if season == "summer":
+    elif season == "summer":
         return random.randint(24, 40)
-    if season == "spring":
+    elif season == "spring":
         return random.randint(16, 23)
-    if season == "fall":
+    elif season == "fall":
         return random.randint(16, 23)
     else:
         return 0
@@ -194,11 +193,10 @@ def main():
     print(f"The temperature right now is {temp} degrees Celsius.")
     if temp <= 0:
         print("Brrr, that’s freezing! Wear some extra layers today")
-    elif temp >= 0 and temp < 16:
+    elif temp > 0 and temp < 16:
         print("Quite chilly! Don’t forget your coat")
     elif temp >= 16 and temp <= 23:
         print("It's a nice day")
-
     elif temp >= 24 and temp <= 32:
         print("It's a hot day")
     else:

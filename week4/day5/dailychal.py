@@ -9,9 +9,6 @@
 
 input_words = "words,here,separated,by,commas,are,here,but,not,sorted,alphabetically"
 
+sorted_words = list(word for word in list(input_words.split(",")))
 
-sorted_word_list = sorted(input_words.split(","))
-
-new_string = ",".join(sorted_word_list)
-
-print(word for word in sorted_word_list)
+print(sorted(sorted_words))

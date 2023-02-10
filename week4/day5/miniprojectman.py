@@ -30,97 +30,73 @@
 # After contemplating the question above, think about splitting your code into smaller pieces (functions).
 # Remember to follow the single responsibility principle! each function should do one thing and do it well!
 
-col1_row1 = "o"
-col1_row2 = "x"
-col1_row3 = "o"
-col2_row1 = "x"
-col2_row2 = "o"
-col2_row3 = "x"
-col3_row1 = "o"
-col3_row2 = "x"
-col3_row3 = "0"
+# input dictionary
 
 list_of_inputboxes = {
-    col1_row1: "col1_row1",
-    col1_row2: "col1_row2",
-    col1_row3: "col1_row3",
-    col2_row1: "col2_row1",
-    col2_row2: "col2_row2",
-    col2_row3: "col2_row3",
-    col3_row1: "col3_row1",
-    col3_row2: "col3_row2",
-    col3_row3: "col3_row3",
+    "col_1_row_1": " ",
+    "col_1_row_2": " ",
+    "col_1_row_3": " ",
+    "col_2_row_1": " ",
+    "col_2_row_2": " ",
+    "col_2_row_3": " ",
+    "col_3_row_1": " ",
+    "col_3_row_2": " ",
+    "col_3_row_3": " ",
 }
 
-print("Welcome to Tic Tac Toe!")
+
+# print board
 
 
-def print_board(
-    col1_row1="",
-    col1_row2="",
-    col1_row3="",
-    col2_row1="",
-    col2_row2="",
-    col2_row3="",
-    col3_row1="",
-    col3_row2="",
-    col3_row3="",
-):
-    print(" col1_row1          | col2_row1          | col3_row1    ")
+def print_board(oxvalues):
     print(
-        "                 "
-        + col1_row1
-        + " |          "
-        + col2_row1
-        + "        | "
-        + col3_row1
+        f" {oxvalues['col_1_row_1']} | {oxvalues['col_2_row_1']} | {oxvalues['col_3_row_1']}"
     )
-    print("                   |                   |             ")
-    print("-----------------------------------------------------")
-    print(" col1_row2          | col2_row2          | col3_row3    ")
+    print("-----------")
     print(
-        "                 "
-        + col1_row2
-        + " |         "
-        + col2_row2
-        + "         | "
-        + col3_row2
+        f" {oxvalues['col_1_row_2']} | {oxvalues['col_2_row_2']} | {oxvalues['col_3_row_2']}"
     )
-    print("                   |                   |             ")
-    print("-----------------------------------------------------")
-    print(" col1row3          | col2row3          | col3row3    ")
+    print("-----------")
     print(
-        "                 "
-        + col1_row3
-        + " |         "
-        + col2_row3
-        + "         | "
-        + col3_row3
+        f" {oxvalues['col_1_row_3']} | {oxvalues['col_2_row_3']} | {oxvalues['col_3_row_3']}"
     )
-    print("                   |                   |             ")
 
 
 # win conditions
-def check_win(
-    col1_row1="",
-    col1_row2="",
-    col1_row3="",
-    col2_row1="",
-    col2_row2="",
-    col2_row3="",
-    col3_row1="",
-    col3_row2="",
-    col3_row3="",
-):
+def check_win(oxvalues):
     if (
-        col1_row1 == col1_row2 == col1_row3
-        or col2_row1 == col2_row2 == col2_row3
-        or col3_row1 == col3_row2 == col3_row3
-        or col1_row1 == col2_row1 == col3_row1
-        or col1_row2 == col2_row2 == col3_row2
-        or col1_row3 == col2_row3 == col3_row3
-        or col1_row1 == col2_row2 == col3_row3
-        or col1_row3 == col2_row2 == col3_row1
+        oxvalues["col_1_row_1"]
+        == oxvalues["col_1_row_2"]
+        == oxvalues["col_1_row_3"]
+        != " "
+        or oxvalues["col_2_row_1"]
+        == oxvalues["col_2_row_2"]
+        == oxvalues["col_2_row_3"]
+        != " "
+        or oxvalues["col_3_row_1"]
+        == oxvalues["col_3_row_2"]
+        == oxvalues["col_3_row_3"]
+        != " "
+        or oxvalues["col_1_row_1"]
+        == oxvalues["col_2_row_1"]
+        == oxvalues["col_3_row_1"]
+        != " "
+        or oxvalues["col_1_row_2"]
+        == oxvalues["col_2_row_2"]
+        == oxvalues["col_3_row_2"]
+        != " "
+        or oxvalues["col_1_row_3"]
+        == oxvalues["col_2_row_3"]
+        == oxvalues["col_3_row_3"]
+        != " "
+        or oxvalues["col_1_row_1"]
+        == oxvalues["col_2_row_2"]
+        == oxvalues["col_3_row_3"]
+        != " "
+        or oxvalues["col_1_row_3"]
+        == oxvalues["col_2_row_2"]
+        == oxvalues["col_3_row_1"]
+        != " "
     ):
         return True
 
@@ -128,30 +104,46 @@ def check_win(
         return False
 
 
-print_board()
+def validate_user_input(colrowuserinput):
+    if int(colrowuserinput) < 0 or int(colrowuserinput) > 3:
+        print("Invalid input")
+        return False
+    pass
 
-while check_win() == False:
-    player1 = input(
-        "Player 1, type in the col and row you want to place your mark example col1_row3: "
-    )
 
-    list_of_inputboxes[player1] = "x"
-    if check_win():
+print("Welcome to Tic Tac Toe!")
+
+print_board(list_of_inputboxes)
+
+print(check_win(list_of_inputboxes))
+
+while check_win(list_of_inputboxes) == False:
+    col_num_player1 = input("PLayer 1 select the columnt: ")
+
+    if validate_user_input(col_num_player1) == True:
+        row_num_player1 = input("Player 1 select the row: ")
+        if validate_user_input(row_num_player1):
+            player1 = f"col_{col_num_player1}_row_{row_num_player1}"
+            list_of_inputboxes[player1] = "x"
+
+    if check_win(list_of_inputboxes) == True:
         print("Player 1 wins!")
-        print_board()
+        print_board(list_of_inputboxes)
         break
-    print_board()
+    print_board(list_of_inputboxes)
 
-    player2 = input(
-        "Player 2, type in the col and row you want to place your mark example col1_row3: "
-    )
+    col_num_player2 = input("Player 2 select the columnt")
+    if validate_user_input(col_num_player2) == True:
+        row_num_player2 = input("Player 2 select the row")
+        if validate_user_input(row_num_player2):
+            player2 = f"col_{col_num_player2}_row_{row_num_player2}"
+            list_of_inputboxes[player2] = "o"
 
-    list_of_inputboxes[player2] = "o"
-    if check_win():
-        print("Player 1 wins!")
-        print_board()
+    if check_win(**list_of_inputboxes) == True:
+        print("Player 2 wins!")
+        print_board(list_of_inputboxes)
         break
-    print_board()
+    print_board(list_of_inputboxes)
 
 
 print("Game Over")
