@@ -165,3 +165,55 @@ stairway.sing_me_a_song()
 # Example
 # Which animal should we add to the zoo --> Giraffe
 # x.add_animal(Giraffe)
+
+
+class Zoo:
+    def __init__(self, zoo_name):
+        self.animals = []
+        self.name = zoo_name
+
+    def add_animal(self, new_animal):
+        if new_animal not in self.animals:
+            self.animals.append(new_animal)
+
+    def get_animals(self):
+        print("All animals in the zoo:")
+        for animal in self.animals:
+            print(animal)
+
+    def sell_animal(self, animal_sold):
+        if animal_sold in self.animals:
+            self.animals.remove(animal_sold)
+
+    def sort_animals(self):
+        sorted_animals = {}
+        for animal in self.animals:
+            if animal[0] not in sorted_animals:
+                sorted_animals[animal[0]] = [animal]
+            else:
+                sorted_animals[animal[0]].append(animal)
+        sorted_animals = dict(sorted(sorted_animals.items()))
+        return sorted_animals
+
+    def get_groups(self):
+        sorted_animals = self.sort_animals()
+        for key, value in sorted_animals.items():
+            print(f"{key}: {value}")
+
+
+my_zoo = Zoo("Ramat Gan Safari")
+my_zoo.add_animal("Ape")
+my_zoo.add_animal("Baboon")
+my_zoo.add_animal("Bear")
+my_zoo.add_animal("Cat")
+my_zoo.add_animal("Cougar")
+my_zoo.add_animal("Eel")
+my_zoo.add_animal("Emu")
+
+my_zoo.get_animals()
+
+my_zoo.sell_animal("Bear")
+
+
+my_zoo.get_animals()
+my_zoo.get_groups()
