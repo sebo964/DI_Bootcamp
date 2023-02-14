@@ -43,3 +43,116 @@
 # 4. Call the incredible_presentation method.
 # 5. Use the born method inherited from the Family class to add Baby Jack with the following power: “Unknown Power”.
 # 6. Call the incredible_presentation method again.
+
+
+# Member1 = {"name": "Michael", "age": 35, "gender": "Male", "is_child": False}
+# Member2 = {"name": "Sarah", "age": 32, "gender": "Female", "is_child": False}
+# family_memmbers = [Member1, Member2]
+
+
+# def born(name, gender, familiy):
+#     familiy.append({"name": name, "gender": gender, "is_child": True, "age": 0})
+#     print("Congrats on the new born")
+
+
+# def is_18(name, familiy):
+#     for member in familiy:
+#         if member["name"] == name:
+#             if member["age"] >= 18:
+#                 return True
+#             else:
+#                 return False
+
+# def family_presentation(familylastnam, family):
+#     print(familylastnam)
+#     for member in family:
+#         print(member["name"])
+
+
+# born("jack", "male", family_memmbers)
+
+# print(family_memmbers)
+
+
+class Family:
+    def __init__(self, last_name, name, age, gender, is_child):
+        self.last_name = last_name
+        self.name = name
+        self.age = age
+        self.gender = gender
+        self.is_child = is_child
+        self.members = [
+            {"Name": name, "age": age, "gender": gender, "is_child": is_child}
+        ]
+
+    def born(self, name, gender, familiy):
+        self.members.append(
+            {"name": name, "gender": gender, "is_child": True, "age": 0}
+        )
+
+    print("Congrats on the new born")
+
+    def is_18(self, name, familiy):
+        for member in familiy:
+            if member["name"] == name:
+                if member["age"] >= 18:
+                    return True
+                else:
+                    return False
+
+    def family_presentation(self, familylastnam, family):
+        print(familylastnam)
+        for member in family:
+            print(member["name"])
+
+    def add_family_member(self, name, gender, age):
+        is_child = ""
+        if int(age) >= 18:
+            is_child = "False"
+        else:
+            is_child = "True"
+        self.members.append(
+            {"name": name, "gender": gender, "age": age, "is_child": is_child}
+        )
+
+
+family1 = Family("lopez", "Mike", 45, "male", False)
+family1.born("paul", "femae", family1.members)
+family1.add_family_member("pauline", "male", 57)
+
+
+print(family1.members)
+
+
+class Incredibles(Family):
+    def __init__(self, last_name, name, age, gender, is_child, power, incredible_name):
+        super().__init__(last_name, name, age, gender, is_child)
+        self.power = power
+        self.incresible_name = incredible_name
+        self.members = [
+            {
+                "Name": last_name,
+                "name": name,
+                "age": age,
+                "gender": gender,
+                "is_child": is_child,
+                "power": power,
+                "incredible_name": incredible_name,
+            }
+        ]
+
+    def use_power(self, name, familiy):
+        for member in familiy:
+            if member["name"] == name:
+                if member["age"] >= 18:
+                    return True
+                    Exception("not over 18 years old")
+                else:
+                    return False
+
+    def incredible_presentation(self, familylastnam, family):
+        print(familylastnam)
+        for member in family:
+            print(member["name"])
+            print(member["incredible_name"])
+            print(member["power"])
