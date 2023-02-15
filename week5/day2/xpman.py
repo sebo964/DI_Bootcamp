@@ -112,32 +112,32 @@ print(dog_3.run_speed())
 # “dog_name shakes your hand”.
 # “dog_name plays dead”.
 
-from xpman import Dog
+# from xpman import Dog
 
-import random
-
-
-class Petdog(Dog):
-    def __init__(self, name, age, weight, trained=False):
-        self.trained = trained
-        super().__init__(name, age, weight)
-
-    def train(self):
-        print(self.bark())
-        self.trained = True
-
-    def play(self, *args):
-        print(f"{args} all play together")
-
-    def do_a_trick(self):
-        if self.trained:
-            print(
-                f"{self.name} {random.choice(['does a barrel roll', 'stands on his back legs', 'shakes your hand', 'plays dead'])}"
-            )
-        else:
-            print("Dog is not trained")
+# import random
 
 
-pet_dog = Petdog("tobit", 12, 30, trained=True)
+# class Petdog(Dog):
+#     def __init__(self, name, age, weight, trained=False):
+#         self.trained = trained
+#         super().__init__(name, age, weight)
 
-pet_dog.do_a_trick()
+#     def train(self):
+#         print(self.bark())
+#         self.trained = True
+
+#     def play(self, *args):
+#         print(f"{args} all play together")
+
+#     def do_a_trick(self):
+#         if self.trained:
+#             print(
+#                 f"{self.name} {random.choice(['does a barrel roll', 'stands on his back legs', 'shakes your hand', 'plays dead'])}"
+#             )
+#         else:
+#             print("Dog is not trained")
+
+
+# pet_dog = Petdog("tobit", 12, 30, trained=True)
+
+# pet_dog.do_a_trick()

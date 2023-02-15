@@ -24,7 +24,7 @@ import random
 class Petdog(Dog):
     def __init__(self, name, age, weight, trained=False):
         self.trained = trained
-        super().__init__(name, age, weight)
+        Dog.__init__(name, age, weight)
 
     def train(self):
         print(self.bark())

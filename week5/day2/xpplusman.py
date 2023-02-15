@@ -126,7 +126,7 @@ print(family1.members)
 
 class Incredibles(Family):
     def __init__(self, last_name, name, age, gender, is_child, power, incredible_name):
-        super().__init__(last_name, name, age, gender, is_child)
+        Family.__init__(last_name, name, age, gender, is_child)
         self.power = power
         self.incresible_name = incredible_name
         self.members = [
@@ -146,9 +146,9 @@ class Incredibles(Family):
             if member["name"] == name:
                 if member["age"] >= 18:
                     return True
-                    Exception("not over 18 years old")
                 else:
                     return False
+        Exception("not over 18 years old")
 
     def incredible_presentation(self, familylastnam, family):
         print(familylastnam)
