@@ -77,62 +77,34 @@ import random
 
 
 class Game:
-    def __init__(self):
-        self.count_useritem_wins = 0
-        self.count_computer_wins = 0
-        self.count_ties = 0
-        self.count_total_games = 0
-        self.options = ["rock", "paper", "scissors"]
-        self.useritem = ""
-        self.computeritem = ""
-        self.useritem_play_again = ""
-
-    def get_useritem_item(self):
-        while self.options.lower() not in self.options:
-            print("Invalid input")
-            self.options = input("Choose rock, paper or scissors: ")
-            self.options = self.lower()
-        return True
+    def get_user_item(self):
+        while True:
+            user_item = input("Please choose rock, paper, or scissors: ")
+            if user_item in ["rock", "paper", "scissors"]:
+                return user_item
+            else:
+                print("Invalid choice. Please try again.")
 
     def get_computer_item(self):
-        self.computeritem = random.choice(self.options)
+        return random.choice(["rock", "paper", "scissors"])
 
-    def get_game_result(self, useritem, computeritem):
-        if useritem == computeritem:
-            print("It's a tie")
-            self.count_ties = +1
-        elif useritem == "rock":
-            if computeritem == "paper":
-                print("You lose")
-                self.count_computer_wins += 1
-            else:
-                print("You win")
-                self.count_useritem_wins += 1
-        elif useritem == "paper":
-            if computeritem == "scissors":
-                print("You lose")
-                self.count_computer_wins += 1
-            else:
-                print("You win")
-                self.count_useritem_wins += 1
-        elif useritem == "scissors":
-            if computeritem == "rock":
-                print("You lose")
-                self.count_computer_wins += 1
-            else:
-                print("You win")
-                self.count_useritem_wins += 1
+    def get_game_result(self, user_item, computer_item):
+        if user_item == computer_item:
+            return "draw"
+        elif (
+            (user_item == "rock" and computer_item == "scissors")
+            or (user_item == "paper" and computer_item == "rock")
+            or (user_item == "scissors" and computer_item == "paper")
+        ):
+            return "win"
         else:
-            print("Invalid input")
-        self.count_total_games += 1
+            return "loss"
 
-        def get_useritem_play_again(self):
-            self.useritem_play_again = str(input("Do you want to play again? (y/n): "))
-            if self.useritem_play_again == "y":
-                while self.useritem_play_again == "y":
-                    self.get_useritem_item()
-                    self.useritem_play_again = str(
-                        input("Do you want to play again? (y/n): ")
-                    )
-                    if self.useritem_play_again == "n":
-                        break
+    def play(self):
+        user_item = self.get_user_item()
+        computer_item = self.get_computer_item()
+        result = self.get_game_result(user_item, computer_item)
+        print(
+            f"You selected {user_item}. The computer selected {computer_item}. You {result}!"
+        )
+        return result

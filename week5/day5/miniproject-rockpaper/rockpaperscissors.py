@@ -1,21 +1,39 @@
+from game import Game
+
+
 def get_user_menu_choice():
-    userselection = int(input("Play new game (1), View highscores (2), Quit (3): "))
-    if userselection == 1:
-        return userselection == "play"
-    if userselection == 2:
-        return userselection == "highscores"
-    if userselection == 3:
-        return userselection == "quit"
-    if userselection != 1 or 2 or 3:
-        print("Invalid input")
-        get_user_menu_choice()
-    return userselection
+    while True:
+        choice = input(
+            "Enter your choice (n for new game, s for scores, or q to quit): "
+        ).lower()
+        if choice in ["n", "s", "q"]:
+            return choice
+        else:
+            print("Invalid choice. Please try again.")
 
 
-userselction = get_user_menu_choice()
+def print_results(results):
+    print("Thank you for playing! Here are the results:")
+    print(f"Total games played: {sum(results.values())}")
+    print(f"Wins: {results['win']}")
+    print(f"Losses: {results['loss']}")
+    print(f"Draws: {results['draw']}")
 
 
-def print_results():
-    print(
-        f"Computer wins {count_computer_wins}, user wins {count_user_wins}, Count ties {count_ties}, Count total games {count_total_games}"
-    )
+def main():
+    results = {"win": 0, "loss": 0, "draw": 0}
+    while True:
+        choice = get_user_menu_choice()
+        if choice == "n":
+            game = Game()
+            result = game.play()
+            results[result] += 1
+        elif choice == "s":
+            print_results(results)
+        else:
+            print_results(results)
+            break
+
+
+if __name__ == "__main__":
+    main()
