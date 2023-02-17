@@ -6,7 +6,6 @@ import datetime as dt
 dt.datetime.now()
 
 
-
 with open("week5/day4/words.txt", "w") as f:
     for i in range(100):
         f.write(str(i) + " word \n")
