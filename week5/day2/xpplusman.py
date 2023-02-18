@@ -75,35 +75,31 @@
 
 
 class Family:
-    def __init__(self, last_name, name, age, gender, is_child):
-        self.last_name = last_name
-        self.name = name
-        self.age = age
-        self.gender = gender
-        self.is_child = is_child
-        self.members = [
-            {"Name": name, "age": age, "gender": gender, "is_child": is_child}
-        ]
+    def __init__(self, **kwargs):
+        self.last_name = kwargs["last_name"]
+        self.name = kwargs["name"]
+        self.age = kwargs["age"]
+        self.gender = kwargs["gender"]
+        self.is_child = kwargs["is_child"]
 
-    def born(self, name, gender, familiy):
+    def born(self, name, gender):
         self.members.append(
             {"name": name, "gender": gender, "is_child": True, "age": 0}
         )
 
-    print("Congrats on the new born")
+        print("Congrats on the new born")
 
-    def is_18(self, name, familiy):
-        for member in familiy:
-            if member["name"] == name:
+    def is_18(self):
+        for member in self.members:
+            if member["name"] == self.name:
                 if member["age"] >= 18:
                     return True
                 else:
                     return False
 
-    def family_presentation(self, familylastnam, family):
+    def family_presentation(self, familylastnam):
         print(familylastnam)
-        for member in family:
-            print(member["name"])
+        print(self.name)
 
     def add_family_member(self, name, gender, age):
         is_child = ""
@@ -116,12 +112,12 @@ class Family:
         )
 
 
-family1 = Family("lopez", "Mike", 45, "male", False)
-family1.born("paul", "femae", family1.members)
-family1.add_family_member("pauline", "male", 57)
+Family_1 = [
+    {"name": "Michael", "age": 35, "gender": "Male", "is_child": False},
+    {"name": "Sarah", "age": 32, "gender": "Female", "is_child": False},
+]
 
-
-print(family1.members)
+Family.family_presentation(Family_1, "TheIncredibles")
 
 
 class Incredibles(Family):
