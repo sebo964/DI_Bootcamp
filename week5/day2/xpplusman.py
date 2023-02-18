@@ -75,80 +75,88 @@
 
 
 class Family:
-    def __init__(self, **kwargs):
-        self.last_name = kwargs["last_name"]
-        self.name = kwargs["name"]
-        self.age = kwargs["age"]
-        self.gender = kwargs["gender"]
-        self.is_child = kwargs["is_child"]
+    def __init__(self, last_name, members):
+        self.last_name = last_name
+        self.members = members
 
-    def born(self, name, gender):
-        self.members.append(
-            {"name": name, "gender": gender, "is_child": True, "age": 0}
+    def born(self, **kwargs):
+        self.members.append(kwargs)
+        print(
+            f"Congratulations on the new addition to the family! Meet {kwargs['name']}."
         )
 
-        print("Congrats on the new born")
-
-    def is_18(self):
+    def is_18(self, name):
         for member in self.members:
-            if member["name"] == self.name:
+            if member["name"] == name:
+                return member["age"] >= 18
+        return False
+
+    def family_presentation(self):
+        print(f"{self.last_name} family members:")
+        for member in self.members:
+            print(f"- {member['name']}")
+
+
+class TheIncredibles(Family):
+    def __init__(self, last_name, members):
+        super().__init__(last_name, members)
+
+    def use_power(self, name):
+        for member in self.members:
+            if member["name"] == name:
                 if member["age"] >= 18:
-                    return True
+                    print(f"{name}'s power is {member['power']}.")
                 else:
-                    return False
-
-    def family_presentation(self, familylastnam):
-        print(familylastnam)
-        print(self.name)
-
-    def add_family_member(self, name, gender, age):
-        is_child = ""
-        if int(age) >= 18:
-            is_child = "False"
+                    raise Exception(
+                        f"{name} is not over 18 years old and cannot use their power."
+                    )
         else:
-            is_child = "True"
-        self.members.append(
-            {"name": name, "gender": gender, "age": age, "is_child": is_child}
-        )
+            print(f"{name} is not a member of the family.")
+
+    def incredible_presentation(self):
+        super().family_presentation()
+        print("Incredible family members:")
+        for member in self.members:
+            print(f"- {member['incredible_name']}, who can {member['power']}.")
 
 
-Family_1 = [
+members = [
     {"name": "Michael", "age": 35, "gender": "Male", "is_child": False},
     {"name": "Sarah", "age": 32, "gender": "Female", "is_child": False},
 ]
+incredible_members = [
+    {
+        "name": "Michael",
+        "age": 35,
+        "gender": "Male",
+        "is_child": False,
+        "power": "fly",
+        "incredible_name": "MikeFly",
+    },
+    {
+        "name": "Sarah",
+        "age": 32,
+        "gender": "Female",
+        "is_child": False,
+        "power": "read minds",
+        "incredible_name": "SuperWoman",
+    },
+]
 
-Family.family_presentation(Family_1, "TheIncredibles")
+fam = Family("Smith", members)
+incredibles = TheIncredibles("Parr", incredible_members)
 
+fam.family_presentation()
 
-class Incredibles(Family):
-    def __init__(self, last_name, name, age, gender, is_child, power, incredible_name):
-        Family.__init__(last_name, name, age, gender, is_child)
-        self.power = power
-        self.incresible_name = incredible_name
-        self.members = [
-            {
-                "Name": last_name,
-                "name": name,
-                "age": age,
-                "gender": gender,
-                "is_child": is_child,
-                "power": power,
-                "incredible_name": incredible_name,
-            }
-        ]
+incredibles.incredible_presentation()
 
-    def use_power(self, name, familiy):
-        for member in familiy:
-            if member["name"] == name:
-                if member["age"] >= 18:
-                    return True
-                else:
-                    return False
-        Exception("not over 18 years old")
+incredibles.born(
+    name="Baby Jack",
+    age=0,
+    gender="Male",
+    is_child=True,
+    power="Unknown Power",
+    incredible_name="Unknown",
+)
 
-    def incredible_presentation(self, familylastnam, family):
-        print(familylastnam)
-        for member in family:
-            print(member["name"])
-            print(member["incredible_name"])
-            print(member["power"])
+incredibles.incredible_presentation()
