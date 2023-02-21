@@ -1,0 +1,8 @@
+-- Q1 - Answer is zero,
+-- the query is counting the elements in firstab, the row id is not in the list and the list selected is where the id value is null, conventional wisdom indicates it should return 3 as count but it seems NULL is not a value in itself but rather the absence of values as such logical operations cannot be performed in cases where there are no values, this is why the count is acutally zero. 
+-- Q2 Answer is 2. 
+--  the query is counting the elements in firstab, where the id values are not = 5 in the secondtab table. As such the count is 2. since the ID null in the sercondtab does not count an the other null entry in the first tab does not count either. 
+-- Q3 Answer is 0 
+-- because the matching parameters have null the query returns zero. 
+-- Q4 answer is 2
+-- since where specifically excludes null values the query returns 2. this is because 5 is excluded because it is in secondtab and null is excluded because it is in the second tab table and null are not excluded.
