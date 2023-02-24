@@ -92,11 +92,11 @@ FROM
 
 -- Write a query to check whether the first_name column of the employees table contains any numbers.
 SELECT
-    first_name ~ '[0-9]' as hasnumbers
+    first_name
 FROM
-    employees;
-
--- Write a query to select the first ten records from a table.
+    employees
+where
+    first_name ~ '[0-9]' -- Write a query to select the first ten records from a table.
 SELECT
     *
 FROM

@@ -2,3 +2,5 @@
 .DS_Store
 **/.DS_Store
 .venv/
+
+**/week6/day5/secrets.py
