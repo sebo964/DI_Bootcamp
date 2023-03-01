@@ -4,3 +4,13 @@
 .venv/
 
 **/week6/day5/secrets.py
+
+/env/
+env/
+**/bin/
+**/lib/
+**/include/
+**/lib64/
+**/lib/
+.ipynb_checkpoints/
+pyvenv.cfg
