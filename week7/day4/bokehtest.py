@@ -3,89 +3,46 @@ from bokeh.io import show
 from bokeh.layouts import column
 from bokeh.models import ColumnDataSource, Slider
 from bokeh.plotting import figure
+from bokeh.models import Label
+
 
 # Load the CSV file into a pandas dataframe
-df = pd.read_csv(
-    "/Users/sebastienarokeum/Desktop/devi/DI_Bootcamp/week7/day4/statsfinal.csv"
+df = pd.read_csv("week7/day4/statsfinal.csv")
+
+# create a new date column from the date string column
+df["date_new"] = pd.to_datetime(df["Date"], errors="coerce")
+
+# rename all the columns to remove - and replace with _
+
+df.columns = df.columns.str.replace("-", "_")
+
+
+# drop the column Unnamed: 0
+df = df.drop(columns=["Unnamed: 0"])
+
+# add a year column
+
+df["year"] = df["date_new"].dt.year
+
+
+print(df.head())
+
+df_sum = df.groupby("year")["Q_P1"].mean().reset_index()
+
+print(df_sum.head())
+# Create a figure object
+p = figure(
+    x_range=(df_sum["year"].min(), df_sum["year"].max()),
+    outer_height=350,
+    title="Sum of Q-P1 by Year",
 )
 
-# Convert the 'Date' column to a datetime type and add the converted date time to a new column New_date
-df["Date"] = pd.to_datetime(df["Date"], format="%D-%M-%Y", errors="coerce")
+# Add a vertical bar chart to the figure
+p.vbar(x="year", top="Q_P1", width=0.8, source=df_sum)
 
-df["New_Date"] = df["Date"].dt.to_period("M").dt.to_timestamp()
-# Create a Bokeh ColumnDataSource from the pandas dataframe
-source = ColumnDataSource(df)
+for index, row in df_sum.iterrows():
+    label = Label(x=row["year"], y=row["Q_P1"], text=str(row["Q_P1"]))
+    p.add_layout(label)
 
-# Create a Bokeh figure
-p = figure(x_axis_type="datetime", title="Q-P1")
-p.vbar(
-    x="New_Date", top="Q-P1", source=source, width=31 * 24 * 60 * 60 * 1000
-)  # 1 month width
-
-
-# Define the callback function for the slider
-def update(attr, old, new):
-    if new == 1:
-        p.xaxis.major_label_overrides = {
-            i: date.strftime("%Y-%m-%d")
-            for i, date in enumerate(
-                pd.date_range(start=df["Date"].min(), end=df["Date"].max(), freq="Q")
-            )
-        }
-        p.xaxis.ticker = [
-            date.timestamp() * 1000
-            for date in pd.date_range(
-                start=df["Date"].min(), end=df["Date"].max(), freq="Q"
-            )
-        ]
-        p.xaxis.major_label_orientation = 1
-        p.xaxis.axis_label = "Quarterly"
-        p.vbar(
-            x="Date", top="Q-P1", source=source, width=3 * 31 * 24 * 60 * 60 * 1000
-        )  # 3 months width
-    elif new == 2:
-        p.xaxis.major_label_overrides = {
-            i: date.strftime("%Y-%m-%d")
-            for i, date in enumerate(
-                pd.date_range(start=df["Date"].min(), end=df["Date"].max(), freq="Y")
-            )
-        }
-        p.xaxis.ticker = [
-            date.timestamp() * 1000
-            for date in pd.date_range(
-                start=df["Date"].min(), end=df["Date"].max(), freq="Y"
-            )
-        ]
-        p.xaxis.major_label_orientation = 1
-        p.xaxis.axis_label = "Yearly"
-        p.vbar(
-            x="Date", top="Q-P1", source=source, width=12 * 31 * 24 * 60 * 60 * 1000
-        )  # 12 months width
-    else:
-        p.xaxis.major_label_overrides = {
-            i: date.strftime("%Y-%m-%d")
-            for i, date in enumerate(
-                pd.date_range(start=df["Date"].min(), end=df["Date"].max(), freq="M")
-            )
-        }
-        p.xaxis.ticker = [
-            date.timestamp() * 1000
-            for date in pd.date_range(
-                start=df["Date"].min(), end=df["Date"].max(), freq="M"
-            )
-        ]
-        p.xaxis.major_label_orientation = 1
-        p.xaxis.axis_label = "Monthly"
-        p.vbar(
-            x="Date", top="Q-P1", source=source, width=31 * 24 * 60 * 60 * 1000
-        )  # 1 month width
-
-
-# Create a Bokeh slider
-slider = Slider(start=0, end=2, value=0, step=1, title="Grouping")
-
-# Add the slider and the figure to a Bokeh layout
-layout = column(slider, p)
-
-# Add the callback function to the slider
-show(layout)
+# Show the plot
+show(p)
