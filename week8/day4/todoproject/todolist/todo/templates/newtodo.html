@@ -1,0 +1,247 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Todo App</title>
+      <link
+        rel="stylesheet"
+        href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"
+        integrity="sha384-IL1Dd6i9YvP3s3sQzJZrPP0TcLmR8OwMjJrk+cwnDm+Y9sJq+3mU31Z+jzjC6+DJ"
+        crossorigin="anonymous"
+      />
+    </head>
+    <title>Add a new todo task</title>
+  </head>
+  <body>
+    <h1>Add a new todo task</h1>
+    {% if form.errors %} {{ form.errors }} {% endif %}
+
+    <h1 class="text-2xl font-bold mb-4">Add a new todo</h1>
+    <form method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      {% csrf_token %}
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="title">
+          Title
+        </label>
+        {{ form.title }} {% if form.title.errors %}
+        <p class="text-red-500 text-sm mt-1">
+          {{ form.title.errors|join:", " }}
+        </p>
+        {% endif %}
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="details">
+          Details
+        </label>
+        {{ form.details }} {% if form.details.errors %}
+        <p class="text-red-500 text-sm mt-1">
+          {{ form.details.errors|join:", " }}
+        </p>
+        {% endif %}
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="category">
+          Category
+        </label>
+        {{ form.category }} {% if form.category.errors %}
+        <p class="text-red-500 text-sm mt-1">
+          {{ form.category.errors|join:", " }}
+        </p>
+        {% endif %}
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="deadline_date">
+          Deadline Date
+        </label>
+        {{ form.deadline_date }} {% if form.deadline_date.errors %}
+        <p class="text-red-500 text-sm mt-1">
+          {{ form.deadline_date.errors|join:", " }}
+        </p>
+        {% endif %}
+      </div>
+      <div class="flex items-center justify-between">
+        <button
+          type="submit"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Add Todo
+        </button>
+      </div>
+    </form>
+  </body>
+</html>
+{% endcomment %} {% comment %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container py-5">
+      <h1 class="display-4 mb-5">Add a new todo task</h1>
+
+      <!-- Form -->
+      <form method="post" class="card p-4">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label class="form-label" for="title">Title</label>
+          {{ form.title }} {% if form.title.errors %}
+          <div class="invalid-feedback">{{ form.title.errors|join:", " }}</div>
+          {% endif %}
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="details">Details</label>
+          {{ form.details }} {% if form.details.errors %}
+          <div class="invalid-feedback">
+            {{ form.details.errors|join:", " }}
+          </div>
+          {% endif %}
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="category">Category</label>
+          {{ form.category }} {% if form.category.errors %}
+          <div class="invalid-feedback">
+            {{ form.category.errors|join:", " }}
+          </div>
+          {% endif %}
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="deadline_date">Deadline Date</label>
+          {{ form.deadline_date }} {% if form.deadline_date.errors %}
+          <div class="invalid-feedback">
+            {{ form.deadline_date.errors|join:", " }}
+          </div>
+          {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary">Add Todo</button>
+      </form>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+{% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <style>
+      /* Basic styling for the form */
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      h1 {
+        font-size: 36px;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      label {
+        display: block;
+        font-size: 18px;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      input[type="text"],
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+      .error-message {
+        color: red;
+        margin-top: -10px;
+        margin-bottom: 10px;
+      }
+      .container a {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.container a:hover {
+    background-color: #3E8E41;
+}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Add a new todo task</h1>
+      <!-- Form -->
+      <form method="post">
+        {% csrf_token %}
+        <div>
+          <label for="title">Title</label>
+          {{ form.title }} {% if form.title.errors %}
+          <div class="error-message">{{ form.title.errors|join:", " }}</div>
+          {% endif %}
+        </div>
+        <div>
+          <label for="details">Details</label>
+          {{ form.details }} {% if form.details.errors %}
+          <div class="error-message">{{ form.details.errors|join:", " }}</div>
+          {% endif %}
+        </div>
+        <div>
+          <label for="category">Category</label>
+          {{ form.category }} {% if form.category.errors %}
+          <div class="error-message">{{ form.category.errors|join:", " }}</div>
+          {% endif %}
+        </div>
+        <div>
+          <label for="deadline_date">Deadline Date</label>
+          {{ form.deadline_date }} {% if form.deadline_date.errors %}
+          <div class="error-message">
+            {{ form.deadline_date.errors|join:", " }}
+          </div>
+          {% endif %}
+        </div>
+        <input type="submit" value="Add Todo" />
+      </form>
+    </div>
+        <div class="container mx-auto px-4">
+      <a
+        href="todolist"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >Go back to to do list </a
+      >
+  </body>
+</html>

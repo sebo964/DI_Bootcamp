@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Add the Tailwind CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>Todo List</title>
+  </head>
+  <body class="bg-gray-100">
+  {% comment %} button to direct to newtodo.html {% endcomment %}
+    <div class="container mx-auto px-4">
+      <a
+        href="add"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >Add New Todo</a
+      >
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold py-4">Todo List</h1>
+      <table class="w-full table-auto">
+        <thead>
+          <tr
+            class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal"
+          >
+            <th class="py-3 px-6 text-left">Title</th>
+            <th class="py-3 px-6 text-left">Details</th>
+            <th class="py-3 px-6 text-center">Has Been Done</th>
+            <th class="py-3 px-6 text-center">Date Creation</th>
+            <th class="py-3 px-6 text-center">Date Completion</th>
+            <th class="py-3 px-6 text-center">Deadline Date</th>
+            <th class="py-3 px-6 text-center">Category</th>
+            <th class="py-3 px-6 text-center">Actions</th>
+            <th class="py-3 px-6 text-center">Mark</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {% for todo in todos %}
+          <tr class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="py-3 px-6 text-left">{{ todo.title }}</td>
+            <td class="py-3 px-6 text-left">{{ todo.details }}</td>
+            <td class="py-3 px-6 text-center">{{ todo.has_been_done }}</td>
+            <td class="py-3 px-6 text-center">{{ todo.date_creation }}</td>
+            <td class="py-3 px-6 text-center">{{ todo.date_completion }}</td>
+            <td class="py-3 px-6 text-center">{{ todo.deadline_date }}</td>
+            <td class="py-3 px-6 text-center">{{ todo.category }}</td>
+            <td class="py-3 px-6 text-center">
+              
+              <form method="post">
+                {% csrf_token %}
+                <button
+                  type="submit"
+                  class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mx-2"
+                    {% comment %} set var id = todo.id {% endcomment %}
+                    value="{{ todo.id }}"
+                >
+                  Delete
+                </button>
+                <td class="py-3 px-6 text-center">
+                </form>
+              <form method="post">
+                {% csrf_token %}
+                <button
+                  type="submit"
+                  class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mx-2"
+                    {% comment %} set var id = todo.id {% endcomment %}
+                    value="{{ todo.id }}"
+                >
+                  Mark as complete
+                </button>
+                
+                </td>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
