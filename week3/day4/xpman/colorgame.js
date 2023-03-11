@@ -1,29 +1,37 @@
-const grid = document.getElementsByClassName("grid")
+let color = null;
+let mousedown = false;
 
-let gridsize = '100' //prompt('Enter the size of the canvas')
+let body = document.getElementsByTagName("body")[0];
+let color_blocks = document.querySelectorAll("#sidebar > *");
+let fill_blocks = document.querySelectorAll("#main > *");
+let clear_button = document.getElementsByTagName("button")[0];
 
-gridsize = parseInt(gridsize)
-
-    for (let j = 0; j < gridsize; j++) {
-        const div = document.createElement("div")
-        div.classList.add("box")
-        grid[0].appendChild(div)
+clear_button.addEventListener("click", function(){
+    for (fill_block of fill_blocks){
+        fill_block.style.backgroundColor = "white";
     }
+});
 
-    
-    const buttonclick = document.getElementById("colorselector")
+body.addEventListener("mousedown", function(){
+    mousedown = true;
+})
+
+body.addEventListener("mouseup", function(){
+    mousedown = false;
+})
 
 
-        // on click get the color of the butto and add it to the active color variable 
+for (color_block of color_blocks){
+    color_block.addEventListener("click", function(event){
+        color = event.target.style.backgroundColor;
+    });
+}
 
-    let activecolor 
-
-    for (let i = 0; i < 24; i++) {
-        const color = document.getElementsByClassName(`color${i}`)
-        color.addEventListener("click", () => {
-            activecolor = color.style.backgroundColor
-        })
-    }
-    
-
-    console.log(activecolor)
+for (fill_block of fill_blocks){
+    fill_block.addEventListener("mousedown", function(event){
+        if (color != null) event.target.style.backgroundColor = color;
+    });
+    fill_block.addEventListener("mouseover", function(event){
+        if (mousedown && color != null) event.target.style.backgroundColor = color;
+    });
+}
