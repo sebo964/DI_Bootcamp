@@ -1,4 +1,3 @@
-
 # 🌟 Exercise 1: Import
 
 # Instructions
@@ -54,7 +53,7 @@ print(roll_dice(3))
 
 random_string = []
 for i in range(5):
-    random_letter = (random.choices(string.ascii_letters))
+    random_letter = random.choices(string.ascii_letters)
     i += 1
     random_string.append(random_letter)
 
@@ -148,3 +147,16 @@ person_age_earthyears_convert_from_seconds = person_age_seconds / 31557600
 # Install the faker module, and take a look at the documentation and learn how to properly implement faker in your code.
 # Create an empty list called users. Tip: It should be a list of dictionaries.
 # Create a function that adds new dictionaries to the users list. Each user has the following keys: name, adress, langage_code. Use faker to populate them with fake data.
+
+import faker
+
+users = []
+
+
+def faker_users():
+    user = {
+        "name": faker.name(),
+        "address": faker.address(),
+        "language_code": faker.language_code(),
+    }
+    users.append(user)

@@ -11,6 +11,7 @@
 # Be able to compare two circles and see if there are equal
 # Be able to put them in a list and sort them
 
+
 class Circle:
     def __init__(self, radius):
         self.radius = radius
@@ -33,3 +34,7 @@ class Circle:
 
     def put_in_list(self, other):
         return [self, other]
+
+    def circle_area(self):
+        area_of_circle = 3.14 * self.radius**2
+        return area_of_circle
