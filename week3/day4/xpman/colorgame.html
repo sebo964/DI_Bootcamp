@@ -1,35 +1,81 @@
+<!-- Welcome to Coloring Squares.
+
+Your task is to build a coloring game similar to the working project above.
+
+You will need to use HTML, CSS and JS to accomplish this task.
+
+A Few Things To Think About…
+
+HTML, CSS:
+
+How will you make the grid of colors?
+How will you make the grid of blank squares?
+Hint… GRID :P
+JS:
+
+How does a user choose a color?
+How does drawing work? How can you tell when the user is clicking and dragging?
+Hint, look at the JS events mousedown, mouseup, and mouseover. -->
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="./colorgame.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./colorgame.css" />
+    <title>Color Game</title>
   </head>
   <body>
-    <div id="sidebar">
-      <button>Clear</button>
-      <div style="background-color: red"></div>
-      <div style="background-color: orangered"></div>
-      <div style="background-color: orange"></div>
-      <div style="background-color: yellow"></div>
-      <div style="background-color: yellowgreen"></div>
-      <div style="background-color: lightgreen"></div>
-      <div style="background-color: green"></div>
-      <div style="background-color: turquoise"></div>
-      <div style="background-color: cyan"></div>
-      <div style="background-color: lightskyblue"></div>
-      <div style="background-color: dodgerblue"></div>
-      <div style="background-color: blue"></div>
-      <div style="background-color: darkblue"></div>
-      <div style="background-color: indigo"></div>
-      <div style="background-color: darkmagenta"></div>
-      <div style="background-color: violet"></div>
-      <div style="background-color: lightpink"></div>
-      <div style="background-color: lightgray"></div>
-      <div style="background-color: gray"></div>
-      <div style="background-color: black; border: 1px solid white"></div>
-      <div style="background-color: white"></div>
-    </div>
-    <div id="main"></div>
-    <script defer type="text/javascript" src="./colorgame.js"></script>
+    <nav>The coloring game</nav>
+
+    <section class="colorselector">
+      <button class="clear">Clear</button>
+
+      <div class="colorsection1">
+        <button class="color1">Color1</button>
+        <button class="color2">Color2</button>
+        <button class="color24">Color24</button>
+      </div>
+      <div class="colorsection2">
+        <button class="color3">Color3</button>
+        <button class="color4">Color4</button>
+        <button class="color5">Color5</button>
+      </div>
+      <div class="colorsection3">
+        <button class="color6">Color6</button>
+        <button class="color7">Color7</button>
+        <button class="color8">Color8</button>
+      </div>
+      <div class="colorsection4">
+        <button class="color9">Color9</button>
+        <button class="color10">Color10</button>
+        <button class="color11">Color11</button>
+      </div>
+      <div class="colorsection5">
+        <button class="color12">Color12</button>
+        <button class="color13">Color13</button>
+        <button class="color14">Color14</button>
+      </div>
+      <div class="colorsection6">
+        <button class="color15">Color15</button>
+        <button class="color16">Color16</button>
+        <button class="color17">Color17</button>
+      </div>
+      <div class="colorsection7">
+        <button class="color18">Color18</button>
+        <button class="color19">Color19</button>
+        <button class="color20">Color20</button>
+      </div>
+      <div class="colorsection8">
+        <button class="color21">Color21</button>
+        <button class="color22">Color22</button>
+        <button class="color23">Color23</button>
+      </div>
+    </section>
+
+    <section class="grid"></section>
+
+    <script src="./colorgame.js"></script>
   </body>
 </html>
