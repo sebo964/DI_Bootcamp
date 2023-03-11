@@ -21,6 +21,7 @@ print(f"Absolute value of {num_user} is {num_abs}")
 
 # Instructions
 
+
 class Currency:
     def __init__(self, currency, amount):
         self.currency = currency
@@ -33,17 +34,18 @@ class Currency:
         if self.currency == other.currency:
             return self.amount + other.amount
         else:
-            return ("Cannot add between Currency type <dollar> and <shekel>")
+            raise TypeError("Cannot add between Currency type <dollar> and <shekel>")
+            # raise ("Cannot add between Currency type <dollar> and <shekel>")
 
     # Your code starts HERE
 
 
 # Using the code above, implement the relevant methods and dunder methods which will output the results below.
 # Hint : When adding 2 currencies which don’t share the same label you should raise an error.
-c1 = Currency('dollar', 5)
-c3 = Currency('shekel', 1)
-c4 = Currency('shekel', 10)
-c2 = Currency('dollar', 10)
+c1 = Currency("dollar", 5)
+c3 = Currency("shekel", 1)
+c4 = Currency("shekel", 10)
+c2 = Currency("dollar", 10)
 
 print(c1)
 
