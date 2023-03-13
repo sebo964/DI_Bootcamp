@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}My Site{% endblock %}</title>
+    {% block styles %} {% comment %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    {% endcomment %} {% endblock %}
+  </head>
+  <body>
+    <nav>{% include 'partials/navbar.html' %}</nav>
+    {% block content %} {% comment %} fields for a new film 
+     title = models.CharField(max_length=50)
+    release_date = models.DateField(auto_now_add=True)
+    created_in_country = models.ForeignKey(Country, on_delete=models.CASCADE)
+    available_in_countries = models.ManyToManyField(
+        Country, related_name="available_in_countries"
+    )
+    category = models.ManyToManyField(Category)
+    director = models.ManyToManyField(Director)
+    {% endcomment %}
+    <form action="/film/addfilm/" method="POST">
+      {% csrf_token %}
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title" />
+      <label for="release_date">Release Date</label>
+      <input type="date" name="release_date" id="release_date" />
+      <label for="created_in_country">Created in Country</label>
+      <select name="created_in_country" id="created_in_country">
+      <label for="available_in_countries">Available in Countries</label>
+      <select name="available_in_countries" id="available_in_countries">
+      <label for="category">Category</label>
+        <select name="category" id="category">
+        <label for="director">Director</label>
+        <select name="director" id="director">
+            <button type="submit">Add Film</button>
+    {% endblock %}  
+
+    <footer>{% include 'partials/base.html' %}</footer>
+  </body>
+</html>

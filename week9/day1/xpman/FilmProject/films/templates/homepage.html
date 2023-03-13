@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}My Site{% endblock %}</title>
+    {% block styles %} {% comment %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    {% endcomment %} {% endblock %}
+  </head>
+  <body>
+    <nav>{% include 'partials/navbar.html' %}</nav>
+    {% block content %} {% comment %} from models films display, title,
+    release_date, category, director, available in country and created in
+    country {% endcomment %} {{ films }} {% for film in films %} {{ film.title
+    }} {{ film.release_date }} {{ film.category }} {{ film.director }} {{
+    film.available_in_country }} {{ film.created_in_country }} {% endfor %}
+    {%endblock %}
+    <footer>{% include 'partials/base.html' %}</footer>
+  </body>
+</html>
