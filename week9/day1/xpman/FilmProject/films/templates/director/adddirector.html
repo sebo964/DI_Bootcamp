@@ -11,7 +11,7 @@
     <nav>{% include 'partials/navbar.html' %}</nav>
     {% block content %} 
     {% comment %} from form director add a new director  {% endcomment %}
-    <form action="{% url 'add_director' %}" method="POST">
+    <form method="POST">
       {% csrf_token %}
       <label for="first_name">Name</label>
       <input type="text" name="first_name" id="first_name" />

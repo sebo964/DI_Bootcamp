@@ -19,7 +19,7 @@
     category = models.ManyToManyField(Category)
     director = models.ManyToManyField(Director)
     {% endcomment %}
-    <form action="/film/addfilm/" method="POST">
+    <form method="POST">
       {% csrf_token %}
       <label for="title">Title</label>
       <input type="text" name="title" id="title" />
