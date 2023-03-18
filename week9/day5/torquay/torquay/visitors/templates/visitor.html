@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visitor page</title>
+  </head>
+  <body>
+    <h2>Visitor page</h2>
+    <p>Visitor images and pretty bootstrap and tailwind</p>
+    <button><a href="{% url 'stafflogin' %}">Login</a></button>
+
+    <h1>Hotel Information</h1>
+    <h2>Location</h2>
+    <p>The hotel is located in Roche Bois.</p>
+
+    <h2>Images</h2>
+    <img src="[insert image URL here]" alt="Hotel Image" />
+    <img src="[insert image URL here]" alt="Hotel Image" />
+
+    <h2>Description</h2>
+    <p>this is my super hotel.</p>
+
+    <h2>Surrounding Area</h2>
+    <p>Entertainment is available all around.</p>
+
+    <h2>Vacancies</h2>
+    <p>Availability for the next 60 days</p>
+    <p>Rooms are available on the following dates:</p>
+    <ul>
+      <li>[Insert available dates here]</li>
+      <li>[Insert available dates here]</li>
+    </ul>
+
+    <h2>Booking</h2>
+    <form method="post">
+      {% csrf_token %}
+
+      <label for="checkin">Check-in date:</label>
+      <input type="date" id="checkin" name="checkin" /><br /><br />
+      <label for="checkout">Check-out date:</label>
+      <input type="date" id="checkout" name="checkout" /><br /><br />
+      <label for="guests">Number of guests:</label>
+      <input type="number" id="guests" name="guests" /><br /><br />
+      <input type="submit" value="Book" />
+    </form>
+
+    <h2>Request More Information</h2>
+    <form method="post">
+      {% csrf_token %}
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" /><br /><br />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" /><br /><br />
+      <label for="message">Message:</label><br />
+      <textarea id="message" name="message"></textarea><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <h2>Leave a Review</h2>
+    <form method="post">
+      {% csrf_token %}
+
+      <label for="rating">Rating:</label>
+      <select id="rating" name="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option></select
+      ><br /><br />
+      <label for="comment">Comment:</label><br />
+      <textarea id="comment" name="comment"></textarea><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

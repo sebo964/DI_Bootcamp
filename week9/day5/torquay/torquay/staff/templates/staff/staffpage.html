@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>staff pages</title>
+  </head>
+  <body>
+    <button><a href="{% url 'visitor' %}">Homepage</a></button>
+
+    <h1>Staff Dashboard</h1>
+    <h2>View Bookings and Vacancies</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Room Type</th>
+          <th>Check-in Date</th>
+          <th>Check-out Date</th>
+          <th>Guests</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for booking in bookings %}
+        <tr>
+          <td>{{ booking.room_type }}</td>
+          <td>{{ booking.checkin_date }}</td>
+          <td>{{ booking.checkout_date }}</td>
+          <td>{{ booking.guests }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="4">No bookings found.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <h2>Add, Modify, and Cancel Bookings</h2>
+    <form method="post">
+      {% csrf_token %}
+      <label for="room_type">Room Type:</label>
+      <input type="text" id="room_type" name="room_type" /><br /><br />
+      <label for="checkin_date">Check-in date:</label>
+      <input type="date" id="checkin_date" name="checkin_date" /><br /><br />
+      <label for="checkout_date">Check-out date:</label>
+      <input type="date" id="checkout_date" name="checkout_date" /><br /><br />
+      <label for="guests">Number of guests:</label>
+      <input type="number" id="guests" name="guests" /><br /><br />
+      <input type="submit" value="Add Booking" />
+    </form>
+
+    <h2>Read Messages from Guests Requesting More Information</h2>
+    <ul>
+      {% for contact in contacts %}
+      <li>
+        <strong>Name:</strong> {{ contact.name }}<br />
+        <strong>Email:</strong> {{ contact.email }}<br />
+        <strong>Message:</strong> {{ contact.message }}
+      </li>
+      {% empty %}
+      <li>No messages found.</li>
+      {% endfor %}
+    </ul>
+
+    <h2>Delete Reviews</h2>
+    <ul>
+      {% for review in reviews %}
+      <li>
+        <strong>Rating:</strong> {{ review.rating }}<br />
+        <strong>Comment:</strong> {{ review.comment }}<br />
+        <form method="post">
+          {% csrf_token %}
+          <input type="hidden" name="review_id" value="{{ review.id }}" />
+          <input type="submit" value="Delete Review" />
+        </form>
+      </li>
+      {% empty %}
+      <li>No reviews found.</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
