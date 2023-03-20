@@ -54,12 +54,12 @@ def all_animals(request):
 
 def animal(request, animal_id):
     animals = animals_main["animals"]
-    animal = animals[animal_id]
-    return render(request, "animal.html", {"animal": animal})
+    for animal in animals:
+        if animal["id"] == animal_id:
+            return render(request, "animals.html", {"animal": animal})
 
 
 def family(request, family_id):
-    # animals = animals_main["animals"]
-    # family = next((family for family in animals if family["id"] == family_id), None)
-    family = animals_main["families"][family_id]
-    return render(request, "family.html", {"family": family})
+    for family in animals_main["families"]:
+        if family["id"] == family_id:
+            return render(request, "family.html", {"family": family})
