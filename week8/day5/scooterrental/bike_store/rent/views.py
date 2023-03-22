@@ -94,6 +94,8 @@ def add_customer(request):
             city=city,
             country=country,
         )
+        # save the customer and redirect to the customer details page
+        customer.save()
         return render(request, "allcustomers.html", {"customer": customer})
     return render(request, "add_customer.html")
 

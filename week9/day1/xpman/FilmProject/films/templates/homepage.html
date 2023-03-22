@@ -9,12 +9,14 @@
   </head>
   <body>
     <nav>{% include 'partials/navbar.html' %}</nav>
-    {% block content %} {% comment %} from models films display, title,
-    release_date, category, director, available in country and created in
-    country {% endcomment %} {{ films }} {% for film in films %} {{ film.title
-    }} {{ film.release_date }} {{ film.category }} {{ film.director }} {{
-    film.available_in_country }} {{ film.created_in_country }} {% endfor %}
-    {%endblock %}
+    {% block content %} {% for film in films %}
+    <h2>{{ film.title }}</h2>
+    <p>Release date: {{ film.release_date }}</p>
+    <p>Category: {{ film.category }}</p>
+    <p>Director: {{ film.director }}</p>
+    <p>Available in country: {{ film.available_in_country }}</p>
+    <p>Created in country: {{ film.created_in_country }}</p>
+    {% endfor %} {% endblock %}
     <footer>{% include 'partials/base.html' %}</footer>
   </body>
 </html>

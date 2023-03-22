@@ -1,0 +1,12 @@
+{% extends 'homepage.html' %} {% block title %}
+{{page_title|default:"Homepage"}} {% endblock title %} {% block content %}
+<h2>Signup !</h2>
+<form method="post">
+  {% csrf_token %} {{ form.as_p }} username: {{ form.username }} <br />
+  password: {{ form.password1 }} <br />
+  password confirmation: {{ form.password2 }} <br />
+  email: {{ form.email }} <br />
+  <input type="submit" value="Signup" />
+</form>
+
+{% endblock content %} {% block form %} {{ block.super }} {% endblock form %}

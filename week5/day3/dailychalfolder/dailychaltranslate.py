@@ -11,7 +11,7 @@ french_words = ["Bonjour", "Au revoir", "Bienvenue", "A bientôt"]
 # You have to recreate the result using a translator module.
 
 
-def translate(word):
+def translate_word(word):
     translated_words = []
     for word in word:
         translator = translate.Translator(to_lang="English")

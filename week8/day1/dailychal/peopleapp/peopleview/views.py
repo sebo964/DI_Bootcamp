@@ -19,7 +19,6 @@ def peopleview(request):
         {"id": 3, "name": "Fabio Alberto", "age": 18, "country": "Italy"},
         {"id": 4, "name": "Dietrich Stein", "age": 85, "country": "Germany"},
     ]
-
     return render(request, "allpeople.html", {"people": people})
 
 

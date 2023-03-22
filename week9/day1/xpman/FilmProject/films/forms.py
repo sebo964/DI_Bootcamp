@@ -3,6 +3,7 @@
 
 import django.forms as forms
 import films.models as models
+import django.contrib.auth.models as auth_models
 
 
 class AddFilmForm(forms.ModelForm):
@@ -14,4 +15,34 @@ class AddFilmForm(forms.ModelForm):
 class AddDirectorForm(forms.ModelForm):
     class Meta:
         model = models.Director
+        fields = "__all__"
+
+
+class RegisterForm(forms.ModelForm):
+    class Meta:
+        model = auth_models.User
+        fields = "__all__"
+
+
+class LoginForm(forms.ModelForm):
+    class Meta:
+        model = auth_models.User
+        fields = "__all__"
+
+
+class SignupForm(forms.ModelForm):
+    class Meta:
+        model = auth_models.User
+        fields = "__all__"
+
+
+class LogoutForm(forms.ModelForm):
+    class Meta:
+        model = auth_models.User
+        fields = "__all__"
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = auth_models.User
         fields = "__all__"
