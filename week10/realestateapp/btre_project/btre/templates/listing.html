@@ -1,6 +1,7 @@
 
 
 {% extends 'base.html' %}
+{% load humanize %}
 
 {% block content %}
 
@@ -149,5 +150,54 @@
     <div id="map"></div>
   </div>
 </div>
+
+
+  <!-- Inquiry Modal -->
+  <div class="modal fade" id="inquiryModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="inquiryModalLabel">Make An Inquiry</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'contact' %}" method = "POST">
+            {% csrf_token %}
+            {% if user.is_authenticated %}
+            <input type="hidden" name="user_id" value="{{ user.id }}"> 
+            {% else %}
+            <input type="hidden" name="user_id" value="0">
+            {% endif %}
+            <input type="hidden" name="realtor_email" value="{{ listing.realtor.email }}">
+            <input type="hidden" name="listing_id" value="{{ listing.id }}">
+
+            <div class="form-group">
+              <label for="property_name" class="col-form-label">Property:</label>
+              <input type="text" name="listing" class="form-control" value="{{ listing.title }}" disabled>
+            </div>
+            <div class="form-group">
+              <label for="name" class="col-form-label">Name:</label>
+              <input type="text" name="name" class="form-control" {% if user.is_authenticated%} value="{{user.firstname}} {{user.lastname}}" {% endif %} required >
+            </div>
+            <div class="form-group">
+              <label for="email" class="col-form-label">Email:</label>
+              <input type="email" name="email" class="form-control"  {% if user.is_authenticated%} value="{{ user.email }}" {% endif %} required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="col-form-label">Message:</label>
+              <textarea class="form-control" name="message" rows="3"></textarea>
+            </div>
+            <hr>
+            <input type="submit" value="Send" class="btn btn-block btn-secondary">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 {% endblock %}
 
